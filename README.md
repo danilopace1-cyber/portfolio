@@ -4,8 +4,8 @@ Personal portfolio site for Danilo Pace, trainee software engineer in London. Bu
 Vite, routed with React Router, styled with plain CSS and CSS modules. No Tailwind, no component
 library, no UI dependencies. The site is meant to be a work sample as much as a description of one.
 
-Deployed to GitHub Pages from a repo named `portfolio`, at
-`https://<your-username>.github.io/portfolio/`.
+**Live at https://danilopace1-cyber.github.io/portfolio/**, deployed to GitHub Pages from the
+`portfolio` repo on every push to `main`.
 
 ---
 
@@ -131,12 +131,13 @@ of `src/data/profile.js` to match.
 
 ### 4. Your GitHub username and the live URL
 
-Three places still say `your-username` or `example`:
+Done already: `src/data/profile.js` (the GitHub contact row) and `index.html` (`og:url` and
+`canonical`, both now pointing at the live URL).
 
-- `src/data/profile.js` — the GitHub entry in `contactLinks`
-- `src/data/projects.js` — the `href` on every project link
-- `index.html` — the `og:url` and `canonical` tags, which should point at your real GitHub Pages URL
-  once the site is live
+Still to do: `src/data/projects.js`, where every project link still points at `PLACEHOLDER_URL`.
+Replace the individual `href: PLACEHOLDER_URL` values as each project gets a real repository. Do not
+change the `PLACEHOLDER_URL` constant itself, or every link goes live at once pointing at the same
+address.
 
 Everything else on the About page, the skills list and the certifications is already real content.
 
@@ -150,29 +151,34 @@ sharing the link on applications.
 
 ---
 
-## Deploying to GitHub Pages
+## Deploying
 
-**1. Name the repository `portfolio`.** The Vite `base` in `vite.config.js` is `/portfolio/`, which
-has to match the repo name or every asset 404s. If you want a different name, change both.
+**This is already set up and live.** To publish a change, commit it and push to `main`. The workflow
+in `.github/workflows/deploy.yml` builds the site and publishes it, usually within two minutes. You
+can watch it on the repo's Actions tab, or trigger a rebuild by hand there without pushing.
 
-**2. Push to `main`.**
+Nothing else needs doing. The rest of this section is only for rebuilding the setup from scratch.
 
-```bash
-git init
-git add .
-git commit -m "Initial commit"
-git branch -M main
-git remote add origin https://github.com/<your-username>/portfolio.git
-git push -u origin main
-```
+<details>
+<summary>Setting it up again from zero</summary>
 
-**3. Turn on Pages with the Actions source.** In the repo, go to **Settings → Pages** and set
-**Source** to **GitHub Actions**. Do not pick "Deploy from a branch", the included workflow uses the
-newer Actions deployment and the two do not mix.
+1. **Name the repository `portfolio`, lowercase.** The Vite `base` in `vite.config.js` is
+   `/portfolio/` and GitHub Pages paths are case-sensitive. A repo called `Portfolio` serves the
+   page but 404s every stylesheet and script, so you get an unstyled wall of text.
+2. **The repository must be public.** GitHub Pages does not run on private repos on the free plan.
+3. **Push the code to `main`.**
+4. **Repo → Settings → Pages → Build and deployment → Source → GitHub Actions.** Not "Deploy from a
+   branch", which is the older mechanism and does not run the workflow. There is no save button.
+5. The site appears at `https://<your-username>.github.io/portfolio/`.
 
-**4. That is it.** `.github/workflows/deploy.yml` builds and publishes on every push to `main`. You
-can also trigger it by hand from the Actions tab. The first run takes a couple of minutes, after
-which the site is at `https://<your-username>.github.io/portfolio/`.
+</details>
+
+### Keeping the workflow current
+
+GitHub retires the Node version its actions run on every so often, and warns on the Actions tab when
+your pinned versions are behind. When that happens, bump the `uses:` versions in
+`.github/workflows/deploy.yml` and the `node-version` under `setup-node`. It is a warning rather than
+a failure, so the site keeps deploying until you get to it.
 
 ### Moving to a custom domain later
 
