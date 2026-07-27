@@ -9,6 +9,88 @@ library, no UI dependencies. The site is meant to be a work sample as much as a 
 
 ---
 
+## Where we left off
+
+_Last updated 27 July 2026._
+
+**The site is built, deployed and live.** Design, build, accessibility pass and deployment are all
+finished. The only thing left is real content.
+
+### Done
+
+- All five pages built: Home, Uni Projects, Personal Projects, About, Contact. Plus a 404 page.
+- Deployed. GitHub Actions publishes on every push to `main`, and deep links survive a hard refresh.
+- Workflow actions and the build's Node version are current as of July 2026.
+- Real content in place: name, headline, availability, intro, the three About paragraphs, the full
+  skills list, all three certifications, education, work dates, email, LinkedIn and GitHub.
+- `public/cv.pdf` replaced with the real CV.
+- SEO: title, description, Open Graph and canonical all point at the live URL.
+
+### Outstanding, in priority order
+
+**1. Real project content. This is the one that matters.** Everything else is optional polish.
+
+Edit `src/data/projects.js`. Three entries under `uniProjects`, two under `personalProjects`. Each
+one currently has a made-up title and summary marked `// PLACEHOLDER — replace with real content`.
+For each project you need:
+
+- `title` — the real project name
+- `year`, `role` — as they actually were
+- `summary` — two or three sentences. What it was, what you specifically built, one concrete
+  technical detail. Plain and direct, no buzzwords. No em dashes and no semicolons anywhere.
+- `tech` — the real stack
+- `image` — a screenshot in `public/images/projects/`, about 1200px wide, 16:10
+- `imageAlt` — describe what is actually in the screenshot
+- `links` — see the warning below
+
+The seeded entries were written from what you told me about your real work, so they are a starting
+shape rather than fiction to delete wholesale. Correct them rather than starting from a blank file.
+
+**Do not change the `PLACEHOLDER_URL` constant at the top of the file.** Replace the individual
+`href: PLACEHOLDER_URL` values one at a time as each project gets a real repository. Change the
+constant and every link on the site goes live at once, all pointing at the same address. While a
+link still holds the sentinel it renders as greyed "To come" text instead of a clickable link, which
+is deliberate: a recruiter who clicks "Repository" and lands on a 404 trusts the whole site less
+than one who sees an honest gap.
+
+**2. Link preview image.** Optional, but worth doing before the link goes on applications. Save a
+1200x630 PNG as `public/og-image.png`, then uncomment the two commented-out lines in the head of
+`index.html` and change `twitter:card` to `summary_large_image`. Right now a shared link shows text
+only, which is fine but plain.
+
+**3. Git identity mismatch.** Commits are authored as `danilopace99@gmail.com` while the GitHub
+account is `danilopace1-cyber`. Unless that address is registered on the account, this work does not
+show on the contribution graph or link to the profile. Add it under github.com → Settings → Emails,
+or change it in GitHub Desktop under File → Options → Git.
+
+**4. Local Node is v21.2.0**, an odd-numbered release that went end of life in June 2024. It builds
+this project fine, so there is no rush, but odd-numbered Node releases never get long-term support.
+Node 22 or 24 when convenient.
+
+### Decisions already made, so they do not get relitigated
+
+- **Skills and certifications live on the About page**, with a condensed "At a glance" block on Home.
+  The brief allowed either that or a separate page. Home carries the stack because that is the actual
+  screening filter and a recruiter should not have to navigate to find it.
+- **Routing uses the `404.html` redirect, not `HashRouter`**, so URLs stay clean for job
+  applications and for search indexing. Reasoning and the switch-back instructions are further down.
+- **The visual direction is "The Appointment"**, a UK newspaper appointments page. This was chosen
+  deliberately over a Risograph print treatment and an anime title-card treatment. The full design
+  system is recorded in `DESIGN.md`, and the product context in `PRODUCT.md`. Read those before
+  changing anything visual.
+
+### To pick this back up
+
+```bash
+npm install     # only if node_modules is missing
+npm run dev     # http://localhost:5173/portfolio/
+```
+
+Edit `src/data/projects.js`, check it at both a narrow and a wide window, then commit and push. The
+site redeploys itself.
+
+---
+
 ## Local setup
 
 You need [Node.js](https://nodejs.org/) 20 or newer.
@@ -125,9 +207,9 @@ layout without cropping oddly. Always write a real `imageAlt` describing what is
 
 ### 3. The CV
 
-Replace `public/cv.pdf` with your real CV and keep the filename. Both Download CV buttons will pick
-it up with no code change. If you would rather name it something else, change `cvPath` at the bottom
-of `src/data/profile.js` to match.
+Done, the real CV is in place. To swap it again later, replace `public/cv.pdf` and keep the
+filename. Both Download CV buttons pick it up with no code change. If you would rather name it
+something else, change `cvPath` at the bottom of `src/data/profile.js` to match.
 
 ### 4. Your GitHub username and the live URL
 
