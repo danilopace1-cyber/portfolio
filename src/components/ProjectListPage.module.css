@@ -1,0 +1,12 @@
+.intro {
+  max-width: 60ch;
+  margin-block-start: var(--sp-4);
+  font-size: var(--fs-md);
+  line-height: 1.6;
+  color: var(--ink-2);
+}
+
+.list {
+  margin-block-start: var(--sp-6);
+  border-block-start: 3px solid var(--rule-strong);
+}

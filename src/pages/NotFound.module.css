@@ -1,0 +1,14 @@
+.lede {
+  max-width: 52ch;
+  margin-block-start: var(--sp-5);
+  font-size: var(--fs-md);
+  line-height: 1.65;
+  color: var(--ink-2);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-3);
+  margin-block-start: var(--sp-6);
+}

@@ -1,0 +1,116 @@
+.story {
+  margin-block-start: var(--sp-5);
+}
+
+.section {
+  margin-block-start: var(--sp-8);
+}
+
+/* --- Fixed-field rows ----------------------------------------------------- */
+
+.rows {
+  margin-block-start: var(--sp-5);
+  border-block-start: 1px solid var(--rule);
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--sp-2);
+  padding-block: var(--sp-4);
+  border-block-end: 1px solid var(--rule);
+}
+
+.rowLabel {
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  font-weight: 500;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+
+.rowValue {
+  margin: 0;
+  min-width: 0;
+}
+
+.rowPrimary {
+  display: block;
+  font-size: var(--fs-md);
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.rowSecondary {
+  display: block;
+  margin-block-start: var(--sp-1);
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-2);
+}
+
+.tag {
+  padding: 0.25em 0.6em;
+  border: 1px solid var(--rule);
+  background-color: var(--paper-raised);
+  font-family: var(--font-mono);
+  font-size: var(--fs-sm);
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  line-height: 1.4;
+  color: var(--ink);
+}
+
+/* --- Certifications ------------------------------------------------------- */
+
+.certs {
+  margin-block-start: var(--sp-5);
+  border-block-start: 1px solid var(--rule);
+}
+
+.cert {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--sp-3) var(--sp-5);
+  padding-block: var(--sp-4);
+  border-block-end: 1px solid var(--rule);
+}
+
+.certMain {
+  min-width: 0;
+}
+
+.certName {
+  max-width: 42ch;
+  font-size: var(--fs-md);
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.certIssuer {
+  margin-block-start: var(--sp-1);
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+
+@media (min-width: 46rem) {
+  .row {
+    grid-template-columns: 9rem minmax(0, 1fr);
+    gap: var(--sp-5);
+    align-items: baseline;
+  }
+}

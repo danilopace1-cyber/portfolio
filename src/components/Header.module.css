@@ -1,0 +1,111 @@
+/* The masthead of the appointments page: a heavy rule, the name set condensed,
+   and the sections listed as mono labels. */
+
+.masthead {
+  border-block-start: 6px solid var(--rule-strong);
+  border-block-end: 1px solid var(--rule);
+  background-color: var(--paper);
+}
+
+.inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--sp-3) var(--sp-6);
+  padding-block: var(--sp-4) var(--sp-3);
+}
+
+.wordmark {
+  display: block;
+  text-decoration: none;
+  color: var(--ink);
+}
+
+.wordmark:hover .name {
+  background-color: var(--accent);
+}
+
+.name {
+  display: inline-block;
+  font-size: 1.375rem;
+  font-weight: 800;
+  font-stretch: 78%;
+  letter-spacing: 0.005em;
+  text-transform: uppercase;
+  line-height: 1;
+  transition: background-color var(--snap);
+}
+
+.role {
+  display: block;
+  margin-block-start: var(--sp-1);
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 400;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+
+.nav {
+  margin-inline-start: auto;
+}
+
+.navList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-1) var(--sp-2);
+  margin: 0;
+}
+
+.navLink {
+  display: block;
+  padding: 0.4em 0.55em;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--ink-2);
+  border: 1px solid transparent;
+  transition: background-color var(--snap), color var(--snap), border-color var(--snap);
+}
+
+.navLink:hover {
+  color: var(--ink);
+  border-color: var(--ink);
+}
+
+/* The current section is stamped, not underlined. */
+.navLinkActive,
+.navLinkActive:hover {
+  background-color: var(--accent);
+  color: var(--on-accent);
+  border-color: var(--ink);
+  font-weight: 600;
+}
+
+@media (max-width: 40rem) {
+  .inner {
+    align-items: stretch;
+    padding-block-end: var(--sp-2);
+  }
+
+  .nav {
+    margin-inline-start: 0;
+    width: 100%;
+    border-block-start: 1px solid var(--rule);
+    padding-block-start: var(--sp-3);
+  }
+
+  .navList {
+    gap: var(--sp-2);
+  }
+
+  .navLink {
+    padding: 0.45em 0.6em;
+    border-color: var(--rule);
+  }
+}

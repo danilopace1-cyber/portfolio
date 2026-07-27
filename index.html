@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!--
+      IMPECCABLE DIRECTION CONTRACT
+
+      THESIS: A junior engineer lists himself in the format recruiters already read every day, the
+      newspaper appointments page. Refuses the developer-portfolio default of hero, tech pills and
+      soft-shadowed cards.
+
+      OWN-WORLD: Cool paper ground, near-black ink, hairline rules, one acid chartreuse used only as
+      a fill behind black text and as small markers. Archivo condensed for headings, JetBrains Mono
+      for reference numbers, field labels and dates. Ruled entries and fixed-field columns, one
+      bordered display advertisement. No shadows, no gradients, no cards.
+
+      STORY: A recruiter sees a London junior engineer with real fundamentals and real professional
+      experience, believes it because the site itself is hand-built, and downloads the CV.
+
+      FIRST VIEWPORT: Masthead rule, name left, mono nav right. One bordered advertisement holding a
+      reference line, the name at full width in condensed caps, a rule, the headline, a black-on-acid
+      availability stamp, three sentences and an acid Download CV button. At-a-glance rows beneath.
+
+      FORM: Candidate 5 of the grounded list, the UK appointments and classifieds page. Staging is
+      the bordered display advertisement above ruled listing sections. Seed key 755b3533.
+    -->
+
+    <title>Danilo Pace | Trainee Software Engineer, London (UK)</title>
+    <meta
+      name="description"
+      content="Danilo Pace is a trainee software engineer in London. BSc Computer Games Programming, two years as an IT support technician, now building with C++, C# and React."
+    />
+    <meta name="author" content="Danilo Pace" />
+    <meta name="theme-color" content="#f1f3f4" />
+
+    <!--
+      No canonical is set on purpose. Pointing it at a domain you do not own
+      tells Google this page is a duplicate of someone else's. Once the site is
+      live, uncomment this with your real URL:
+
+      <link rel="canonical" href="https://<your-username>.github.io/portfolio/" />
+    -->
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Danilo Pace" />
+    <meta property="og:title" content="Danilo Pace | Trainee Software Engineer, London (UK)" />
+    <meta
+      property="og:description"
+      content="BSc Computer Games Programming, two years as an IT support technician, now building with C++, C# and React. Open to junior and graduate roles."
+    />
+    <!-- PLACEHOLDER — replace with your real GitHub Pages URL once deployed -->
+    <meta property="og:url" content="https://example.github.io/portfolio/" />
+
+    <!--
+      No og:image is set on purpose. A tag pointing at a file that does not exist
+      is worse than no tag, because LinkedIn and Slack render a broken card.
+      To add one: drop a 1200x630 PNG at public/og-image.png, then uncomment the
+      two lines below and switch twitter:card to summary_large_image.
+
+      <meta property="og:image" content="https://<your-username>.github.io/portfolio/og-image.png" />
+      <meta property="og:image:alt" content="Danilo Pace, trainee software engineer, London." />
+    -->
+
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Danilo Pace | Trainee Software Engineer, London (UK)" />
+    <meta
+      name="twitter:description"
+      content="BSc Computer Games Programming, two years as an IT support technician, now building with C++, C# and React."
+    />
+
+    <link rel="icon" type="image/svg+xml" href="/portfolio/favicon.svg" />
+    <link rel="apple-touch-icon" href="/portfolio/favicon.svg" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=JetBrains+Mono:wght@400..600&display=swap"
+      rel="stylesheet"
+    />
+
+    <script>
+      // Second half of the GitHub Pages deep-link fix. public/404.html rewrites
+      // /portfolio/about into /portfolio/?/about and sends the browser here.
+      // This puts the real path back in the address bar before React Router boots,
+      // so the router and the URL agree and no redirect is ever visible.
+      ;(function (l) {
+        if (l.search[1] === '/') {
+          var decoded = l.search
+            .slice(1)
+            .split('&')
+            .map(function (s) {
+              return s.replace(/~and~/g, '&')
+            })
+            .join('?')
+          window.history.replaceState(null, null, l.pathname.slice(0, -1) + decoded + l.hash)
+        }
+      })(window.location)
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

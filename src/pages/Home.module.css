@@ -1,0 +1,238 @@
+/* The boxed display advertisement, then ruled data sections beneath it. */
+
+.ad {
+  margin-block-start: var(--sp-5);
+  border: 3px solid var(--rule-strong);
+  background-color: var(--paper-raised);
+}
+
+.adStrip {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: var(--sp-2) var(--sp-4);
+  padding: var(--sp-3) var(--sp-4);
+  border-block-end: 1px solid var(--rule);
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  font-weight: 500;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+
+/* The name is set as the ad's headline, so it is aria-hidden and the real h1
+   is visually hidden above it. That keeps the heading order honest without
+   printing the name twice on screen. */
+.name {
+  padding: var(--sp-5) var(--sp-4) var(--sp-4);
+  font-size: var(--fs-display);
+  font-weight: 800;
+  font-stretch: 72%;
+  text-transform: uppercase;
+  letter-spacing: -0.015em;
+  line-height: 0.9;
+  color: var(--ink);
+}
+
+.adRule {
+  border: 0;
+  border-block-start: 1px solid var(--rule);
+}
+
+.adBody {
+  display: grid;
+  gap: var(--sp-5);
+  padding: var(--sp-5) var(--sp-4) var(--sp-6);
+}
+
+.headline {
+  font-size: var(--fs-lg);
+  font-weight: 600;
+  font-stretch: 92%;
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+}
+
+.stampRow {
+  margin-block-start: var(--sp-4);
+}
+
+.intro {
+  max-width: 58ch;
+  font-size: var(--fs-md);
+  line-height: 1.65;
+  color: var(--ink-2);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-3);
+}
+
+/* --- Ruled data sections -------------------------------------------------- */
+
+.section {
+  margin-block-start: var(--sp-8);
+}
+
+.glance {
+  margin-block-start: var(--sp-5);
+  border-block-start: 1px solid var(--rule);
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--sp-1);
+  padding-block: var(--sp-3);
+  border-block-end: 1px solid var(--rule);
+}
+
+.rowLabel {
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  font-weight: 500;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+
+.rowValue {
+  margin: 0;
+  color: var(--ink);
+  line-height: 1.55;
+}
+
+/* --- Section index -------------------------------------------------------- */
+
+.index {
+  margin-block-start: var(--sp-5);
+  border-block-start: 1px solid var(--rule);
+}
+
+.indexRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--sp-3) var(--sp-5);
+  padding-block: var(--sp-5);
+  padding-inline: var(--sp-2);
+  border-block-end: 1px solid var(--rule);
+  text-decoration: none;
+  color: var(--ink);
+  transition: background-color var(--snap);
+}
+
+.indexRow:hover {
+  background-color: var(--accent);
+}
+
+.indexMain {
+  display: block;
+  min-width: 0;
+}
+
+.indexTitle {
+  display: block;
+  font-size: var(--fs-xl);
+  font-weight: 800;
+  font-stretch: 80%;
+  text-transform: uppercase;
+  letter-spacing: 0.005em;
+  line-height: 1.05;
+}
+
+.indexBlurb {
+  display: block;
+  max-width: 46ch;
+  margin-block-start: var(--sp-2);
+  font-size: var(--fs-base);
+  color: var(--ink-2);
+  line-height: 1.5;
+}
+
+.indexRow:hover .indexBlurb {
+  color: var(--on-accent);
+}
+
+.indexMeta {
+  display: flex;
+  align-items: baseline;
+  gap: var(--sp-4);
+  flex: none;
+}
+
+.indexCount {
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  font-weight: 500;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+
+.indexRow:hover .indexCount {
+  color: var(--on-accent);
+}
+
+.indexArrow {
+  font-size: 1.5rem;
+  line-height: 1;
+  transition: transform var(--snap);
+}
+
+.indexRow:hover .indexArrow {
+  transform: translateX(4px);
+}
+
+@media (min-width: 46rem) {
+  .adStrip,
+  .name,
+  .adBody {
+    padding-inline: var(--sp-6);
+  }
+
+  .name {
+    padding-block: var(--sp-6) var(--sp-5);
+  }
+
+  /* Two columns, with the intro spanning both rows on the right so the CV
+     button can sit directly under the availability stamp on the left. Laying
+     actions across the full width instead left a tall void between the stamp
+     and the button, pushing the two most persuasive elements apart. DOM order
+     stays headline, intro, actions, which is the right reading order when this
+     collapses to one column on a phone. */
+  .adBody {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    grid-template-areas:
+      'head intro'
+      'actions intro';
+    grid-template-rows: auto auto;
+    align-content: start;
+    gap: var(--sp-5) var(--sp-7);
+    padding-block: var(--sp-6) var(--sp-7);
+  }
+
+  .adHead {
+    grid-area: head;
+  }
+
+  .intro {
+    grid-area: intro;
+  }
+
+  .actions {
+    grid-area: actions;
+    align-self: start;
+  }
+
+  .row {
+    grid-template-columns: 9rem minmax(0, 1fr);
+    gap: var(--sp-5);
+    align-items: baseline;
+    padding-block: var(--sp-4);
+  }
+}

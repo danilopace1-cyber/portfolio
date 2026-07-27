@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Danilo Pace</title>
+    <script>
+      // GitHub Pages has no server-side routing, so a hard refresh on a deep link
+      // like /portfolio/uni-projects returns this 404 page. We encode the path into
+      // a query string and bounce to the site root, where the inline script in
+      // index.html restores the real URL before React Router starts.
+      //
+      // pathSegmentsToKeep is 1 because the site lives in a project repo at
+      // /portfolio/. Set it to 0 if you ever move to a user page at the domain root.
+      var pathSegmentsToKeep = 1
+
+      var l = window.location
+      l.replace(
+        l.protocol +
+          '//' +
+          l.hostname +
+          (l.port ? ':' + l.port : '') +
+          l.pathname
+            .split('/')
+            .slice(0, 1 + pathSegmentsToKeep)
+            .join('/') +
+          '/?/' +
+          l.pathname
+            .slice(1)
+            .split('/')
+            .slice(pathSegmentsToKeep)
+            .join('/')
+            .replace(/&/g, '~and~') +
+          (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
+          l.hash
+      )
+    </script>
+  </head>
+  <body></body>
+</html>

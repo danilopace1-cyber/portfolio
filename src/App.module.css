@@ -1,0 +1,22 @@
+.shell {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main {
+  flex: 1 0 auto;
+  padding-block: var(--sp-6) var(--sp-8);
+}
+
+/* The main element is focused on route change for screen reader users. That
+   focus should not draw a ring, because nothing was clicked. */
+.main:focus {
+  outline: none;
+}
+
+@media (min-width: 46rem) {
+  .main {
+    padding-block: var(--sp-7) var(--sp-9);
+  }
+}

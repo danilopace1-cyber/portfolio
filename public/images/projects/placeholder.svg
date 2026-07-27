@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500">
+  <rect width="800" height="500" fill="#e7eae9" />
+  <g stroke="#d3dad9" stroke-width="1">
+    <path d="M0 100.5h800M0 200.5h800M0 300.5h800M0 400.5h800" />
+    <path d="M100.5 0v500M200.5 0v500M300.5 0v500M400.5 0v500M500.5 0v500M600.5 0v500M700.5 0v500" />
+  </g>
+  <g fill="#9aa5a3">
+    <rect x="368" y="228" width="16" height="16" />
+    <rect x="416" y="228" width="16" height="16" />
+    <rect x="392" y="252" width="16" height="16" />
+    <rect x="368" y="276" width="16" height="16" />
+    <rect x="416" y="276" width="16" height="16" />
+  </g>
+  <text
+    x="400"
+    y="330"
+    text-anchor="middle"
+    font-family="ui-monospace, SFMono-Regular, Menlo, monospace"
+    font-size="17"
+    letter-spacing="3"
+    fill="#7d8886"
+  >
+    PROJECT IMAGE
+  </text>
+  <rect x="0.5" y="0.5" width="799" height="499" fill="none" stroke="#c3ccca" />
+</svg>

@@ -1,0 +1,338 @@
+/* ============================================================================
+   Danilo Pace — portfolio
+   Visual world: the UK newspaper appointments page. Ruled entries, fixed-field
+   columns, one bordered display advertisement, hairline rules. No shadows, no
+   gradients, no cards, no rounded corners.
+   ========================================================================== */
+
+/* --- Tokens --------------------------------------------------------------- */
+
+:root {
+  /* Paper and ink. A cool stock, deliberately not cream. */
+  --paper: #f1f3f4;
+  --paper-raised: #ffffff;
+  --paper-sunk: #e7eae9;
+
+  --ink: #101314;
+  --ink-2: #454d50;
+  --ink-3: #5e676a;
+
+  --rule: #cdd5d5;
+  --rule-strong: #101314;
+
+  /* The single accent. Only ever a fill behind near-black text, or a small mark. */
+  --accent: #c6ef3e;
+  /* The darker value of the same hue, for marks and for the underline that is
+     the only thing distinguishing an inline link from the prose around it. It
+     has to clear 3:1 against paper to be a legitimate non-text indicator, which
+     the brighter accent does not. */
+  --accent-deep: #6b8a0d;
+  --on-accent: #101314;
+
+  /* Type */
+  --font-sans: 'Archivo', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial,
+    sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace;
+
+  --fs-xs: 0.75rem;
+  --fs-sm: 0.8125rem;
+  --fs-base: clamp(1rem, 0.965rem + 0.17vw, 1.0625rem);
+  --fs-md: clamp(1.0625rem, 1rem + 0.3vw, 1.1875rem);
+  --fs-lg: clamp(1.1875rem, 1.09rem + 0.5vw, 1.4375rem);
+  --fs-xl: clamp(1.375rem, 1.15rem + 1.1vw, 2rem);
+  --fs-2xl: clamp(1.75rem, 1.35rem + 2vw, 2.625rem);
+  --fs-display: clamp(2.375rem, 1.1rem + 6.6vw, 5rem);
+
+  /* Space */
+  --sp-1: 0.25rem;
+  --sp-2: 0.5rem;
+  --sp-3: 0.75rem;
+  --sp-4: 1rem;
+  --sp-5: 1.5rem;
+  --sp-6: 2rem;
+  --sp-7: 3rem;
+  --sp-8: 4rem;
+  --sp-9: 6rem;
+
+  --measure: 68ch;
+  --container: 70rem;
+  --gutter: clamp(1.25rem, 5vw, 3rem);
+
+  /* Motion. The one authored gesture on this site is a sprite-style snap:
+     state changes land in a couple of hard steps instead of easing. */
+  --snap: 120ms steps(2, end);
+}
+
+/* --- Reset ---------------------------------------------------------------- */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  min-height: 100vh;
+  background-color: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-size: var(--fs-base);
+  line-height: 1.6;
+  font-synthesis-weight: none;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+img {
+  height: auto;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+  color: inherit;
+}
+
+ul,
+ol {
+  padding: 0;
+  list-style: none;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-weight: 700;
+  line-height: 1.1;
+  text-wrap: balance;
+  letter-spacing: -0.02em;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+a {
+  color: inherit;
+}
+
+/* --- Focus ---------------------------------------------------------------- */
+/* One rule that stays visible on paper and on the accent fill alike. */
+
+:focus-visible {
+  outline: 3px solid var(--ink);
+  outline-offset: 2px;
+}
+
+/* --- Layout primitives ---------------------------------------------------- */
+
+.container {
+  width: 100%;
+  max-width: var(--container);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.stack > * + * {
+  margin-block-start: var(--sp-4);
+}
+
+.prose {
+  max-width: var(--measure);
+  font-size: var(--fs-md);
+  line-height: 1.65;
+  color: var(--ink-2);
+}
+
+.prose > * + * {
+  margin-block-start: var(--sp-4);
+}
+
+.prose strong {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+/* --- Rules ---------------------------------------------------------------- */
+
+.rule-heavy {
+  border: 0;
+  border-block-start: 3px solid var(--rule-strong);
+}
+
+.rule-hair {
+  border: 0;
+  border-block-start: 1px solid var(--rule);
+}
+
+/* --- Mono labels ---------------------------------------------------------- */
+/* Mono is reserved for reference codes, field labels, dates and counts.
+   It is never used as decoration on prose. */
+
+.mono {
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  font-weight: 500;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  line-height: 1.4;
+}
+
+.mono--ink {
+  color: var(--ink);
+}
+
+/* --- Status chips and the availability stamp ------------------------------ */
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-2);
+  padding: 0.3em 0.6em;
+  border: 1px solid var(--ink);
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  line-height: 1.3;
+  white-space: nowrap;
+}
+
+.chip--live {
+  background-color: var(--accent);
+  color: var(--on-accent);
+  border-color: var(--ink);
+}
+
+.stamp {
+  display: inline-block;
+  padding: var(--sp-2) var(--sp-4);
+  background-color: var(--accent);
+  color: var(--on-accent);
+  border: 2px solid var(--ink);
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+  line-height: 1.3;
+}
+
+/* --- Buttons -------------------------------------------------------------- */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sp-3);
+  padding: 0.7em 1.25em;
+  border: 2px solid var(--ink);
+  background-color: transparent;
+  color: var(--ink);
+  font-family: var(--font-mono);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  text-decoration: none;
+  line-height: 1.2;
+  cursor: pointer;
+  transition: background-color var(--snap), color var(--snap);
+}
+
+.btn--accent {
+  background-color: var(--accent);
+  color: var(--on-accent);
+}
+
+.btn--accent:hover {
+  background-color: var(--ink);
+  color: var(--accent);
+}
+
+.btn--plain:hover {
+  background-color: var(--ink);
+  color: var(--paper);
+}
+
+/* --- Inline links --------------------------------------------------------- */
+
+.link {
+  color: var(--ink);
+  text-decoration: none;
+  border-block-end: 2px solid var(--accent-deep);
+  padding-block-end: 1px;
+  transition: background-color var(--snap), border-color var(--snap);
+}
+
+.link:hover {
+  background-color: var(--accent);
+  border-block-end-color: var(--ink);
+}
+
+/* --- Utility -------------------------------------------------------------- */
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-link {
+  position: absolute;
+  inset-inline-start: var(--gutter);
+  inset-block-start: -100%;
+  z-index: 50;
+  padding: var(--sp-3) var(--sp-4);
+  background-color: var(--accent);
+  color: var(--on-accent);
+  border: 2px solid var(--ink);
+  font-family: var(--font-mono);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.skip-link:focus {
+  inset-block-start: var(--sp-3);
+}
+
+/* --- Reduced motion ------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+  }
+}

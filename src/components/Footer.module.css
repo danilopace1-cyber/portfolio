@@ -1,0 +1,95 @@
+/* The title block at the foot of the sheet. */
+
+.footer {
+  /* No top margin. The main element already ends with a generous bottom pad,
+     and stacking both left a dead band above the rule on short pages. */
+  border-block-start: 6px solid var(--rule-strong);
+  background-color: var(--paper);
+}
+
+.inner {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--sp-6);
+  padding-block: var(--sp-6);
+}
+
+.block > * + * {
+  margin-block-start: var(--sp-3);
+}
+
+.name {
+  font-size: 1.25rem;
+  font-weight: 800;
+  font-stretch: 78%;
+  text-transform: uppercase;
+  letter-spacing: 0.005em;
+  line-height: 1;
+}
+
+.links {
+  display: grid;
+  gap: 0;
+  border-block-start: 1px solid var(--rule);
+}
+
+.link {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--sp-2) var(--sp-4);
+  padding-block: var(--sp-3);
+  border-block-end: 1px solid var(--rule);
+  text-decoration: none;
+  color: var(--ink);
+  transition: background-color var(--snap);
+}
+
+.link:hover {
+  background-color: var(--accent);
+}
+
+/* Not yet a real address, so not a link and not hoverable. */
+.linkPending,
+.linkPending:hover {
+  background-color: transparent;
+  color: var(--ink-3);
+  cursor: default;
+}
+
+.linkLabel {
+  flex: 0 0 5.5rem;
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  font-weight: 500;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+
+.link:hover .linkLabel {
+  color: var(--on-accent);
+}
+
+.linkValue {
+  font-size: var(--fs-base);
+  font-weight: 500;
+  word-break: break-word;
+}
+
+.colophon {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: var(--sp-2) var(--sp-4);
+  padding-block: var(--sp-4);
+  border-block-start: 1px solid var(--rule);
+}
+
+@media (min-width: 46rem) {
+  .inner {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
+    gap: var(--sp-8);
+    padding-block: var(--sp-7);
+  }
+}

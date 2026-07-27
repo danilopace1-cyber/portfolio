@@ -1,0 +1,370 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-07-27T00:00:00.000Z",
+  "title": "Design System: Danilo Pace Portfolio",
+  "extensions": {
+    "colorMeta": {
+      "accent": {
+        "role": "primary",
+        "displayName": "Acid Chartreuse",
+        "canonical": "#c6ef3e",
+        "note": "Fill only, always behind near-black text. Does not clear 3:1 as a non-text indicator, which is why accent-deep exists.",
+        "tonalRamp": [
+          "#1c2205",
+          "#33400a",
+          "#4e6110",
+          "#6b8a0d",
+          "#8fbb1d",
+          "#c6ef3e",
+          "#dcf585",
+          "#f2fbcb"
+        ]
+      },
+      "accent-deep": {
+        "role": "primary",
+        "displayName": "Deep Chartreuse",
+        "canonical": "#6b8a0d",
+        "note": "The same hue at a value that clears 3:1 against paper. Pixel mark and inline-link underline only.",
+        "tonalRamp": [
+          "#161c02",
+          "#293504",
+          "#3e5107",
+          "#546d0a",
+          "#6b8a0d",
+          "#93b62b",
+          "#bedd6b",
+          "#e6f4bd"
+        ]
+      },
+      "paper": {
+        "role": "neutral",
+        "displayName": "Cool Paper",
+        "canonical": "#f1f3f4",
+        "note": "Page ground. A cool stock, deliberately not cream.",
+        "tonalRamp": [
+          "#161819",
+          "#2b2e30",
+          "#454d50",
+          "#5e676a",
+          "#8d9698",
+          "#b9c0c1",
+          "#dde1e2",
+          "#f1f3f4"
+        ]
+      },
+      "paper-raised": {
+        "role": "neutral",
+        "displayName": "Raised Paper",
+        "canonical": "#ffffff",
+        "note": "Inside bordered blocks and behind stack tags only.",
+        "tonalRamp": [
+          "#1a1a1a",
+          "#333333",
+          "#4d4d4d",
+          "#6b6b6b",
+          "#949494",
+          "#c2c2c2",
+          "#e6e6e6",
+          "#ffffff"
+        ]
+      },
+      "paper-sunk": {
+        "role": "neutral",
+        "displayName": "Sunk Paper",
+        "canonical": "#e7eae9",
+        "note": "The well behind a project image, so an empty or loading field reads as defined.",
+        "tonalRamp": [
+          "#141716",
+          "#282c2b",
+          "#3f4443",
+          "#575f5d",
+          "#848d8b",
+          "#b0b8b6",
+          "#d3d9d7",
+          "#e7eae9"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Near-Black Ink",
+        "canonical": "#101314",
+        "note": "Headings, body, all device borders, and the focus outline.",
+        "tonalRamp": [
+          "#101314",
+          "#1e2325",
+          "#2f3639",
+          "#454d50",
+          "#5e676a",
+          "#8c9497",
+          "#bcc2c4",
+          "#e8ebec"
+        ]
+      },
+      "ink-2": {
+        "role": "neutral",
+        "displayName": "Mid Ink",
+        "canonical": "#454d50",
+        "note": "Everything set as sentences: prose, summaries, ledes, blurbs."
+      },
+      "ink-3": {
+        "role": "neutral",
+        "displayName": "Quiet Ink",
+        "canonical": "#5e676a",
+        "note": "Mono field labels, dates, counts, and every pending state."
+      },
+      "rule": {
+        "role": "neutral",
+        "displayName": "Hairline",
+        "canonical": "#cdd5d5",
+        "note": "1px row and entry dividers, and the border of quiet devices."
+      },
+      "rule-strong": {
+        "role": "neutral",
+        "displayName": "Strong Rule",
+        "canonical": "#101314",
+        "note": "Structural weights only: 3px section head and block border, 6px masthead and footer."
+      },
+      "on-accent": {
+        "role": "neutral",
+        "displayName": "Type On Accent",
+        "canonical": "#101314",
+        "note": "The near-black that always sits on an accent fill."
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "The name, once, at full width inside the display advertisement. Archivo width axis at 72%."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Section headers and section-index row titles. Condensed uppercase at width 80%."
+      },
+      "title": {
+        "displayName": "Entry Title",
+        "purpose": "The title of a ruled listing entry. Width 88%, not uppercased."
+      },
+      "subhead": {
+        "displayName": "Advertisement Headline",
+        "purpose": "The role line under the name. Width 92%, reads as a sentence but sits above prose."
+      },
+      "lede": {
+        "displayName": "Lede",
+        "purpose": "Advertisement intro, page ledes, About prose, and the primary value in a fixed-field row. Capped 58-68ch."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Row values, entry summaries, index blurbs. Capped 46-62ch by block."
+      },
+      "label": {
+        "displayName": "Field Label",
+        "purpose": "Mono uppercase for field labels, reference lines, dates, counts and statuses. Never sets prose."
+      },
+      "label-micro": {
+        "displayName": "Micro Label",
+        "purpose": "Masthead nav, masthead role line, pending tags. The smallest step in the system."
+      },
+      "action": {
+        "displayName": "Action Lettering",
+        "purpose": "Buttons, skip link, entry links. Mono uppercase at 600."
+      }
+    },
+    "shadows": [],
+    "motion": [
+      {
+        "name": "snap",
+        "value": "120ms steps(2, end)",
+        "purpose": "The only authored gesture on the site. Applied to background-color, color and border-color only, so state lands in two hard frames like a sprite swapping rather than easing."
+      },
+      {
+        "name": "arrow-nudge",
+        "value": "transform: translateX(4px)",
+        "purpose": "The single transform in the build, on the section-index row arrow at hover, timed with the snap."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "transition-duration: 0.01ms; animation-duration: 0.01ms",
+        "purpose": "Global prefers-reduced-motion override collapsing every duration."
+      }
+    ],
+    "breakpoints": [
+      { "name": "nav-stack", "value": "40rem", "purpose": "max-width query, masthead only: nav drops to its own full-width row with visible hairline borders." },
+      { "name": "sheet", "value": "46rem", "purpose": "min-width query, site-wide: fixed-field rows go two-column, bordered blocks widen inline padding to 2rem, listing entries gain their 17rem media column." }
+    ],
+    "layout": {
+      "container": "70rem",
+      "gutter": "clamp(1.25rem, 5vw, 3rem)",
+      "measure": "68ch",
+      "fixedLabelColumns": ["6rem (project entry fields)", "9rem (at-a-glance and About record)", "5rem-5.5rem (contact and footer)"],
+      "ruleLadder": ["1px hairline (row divider)", "2px ink (device edge)", "3px strong (section head, block border)", "6px strong (masthead, footer)"]
+    }
+  },
+  "components": [
+    {
+      "name": "Accent Button",
+      "kind": "button",
+      "refersTo": "button-accent",
+      "description": "The primary action. Chartreuse fill, near-black lettering, one per view. Hover inverts the whole pairing.",
+      "html": "<a class=\"ds-btn ds-btn-accent\" href=\"#\">Download CV<span aria-hidden=\"true\">↓</span></a>",
+      "css": ".ds-btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.75rem; padding: 0.7em 1.25em; border: 2px solid var(--ink, #101314); background-color: transparent; color: var(--ink, #101314); font-family: 'JetBrains Mono', ui-monospace, Menlo, Consolas, monospace; font-size: 0.8125rem; font-weight: 600; letter-spacing: 0.07em; text-transform: uppercase; text-decoration: none; line-height: 1.2; border-radius: 0; cursor: pointer; transition: background-color 120ms steps(2, end), color 120ms steps(2, end); } .ds-btn-accent { background-color: var(--accent, #c6ef3e); color: var(--on-accent, #101314); } .ds-btn-accent:hover { background-color: var(--ink, #101314); color: var(--accent, #c6ef3e); } .ds-btn:focus-visible { outline: 3px solid var(--ink, #101314); outline-offset: 2px; }"
+    },
+    {
+      "name": "Plain Button",
+      "kind": "button",
+      "refersTo": "button-plain",
+      "description": "The secondary action. Transparent on paper with the same 2px near-black edge, filling near-black on hover.",
+      "html": "<a class=\"ds-btn ds-btn-plain\" href=\"#\">Get in touch</a>",
+      "css": ".ds-btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.75rem; padding: 0.7em 1.25em; border: 2px solid var(--ink, #101314); background-color: transparent; color: var(--ink, #101314); font-family: 'JetBrains Mono', ui-monospace, Menlo, Consolas, monospace; font-size: 0.8125rem; font-weight: 600; letter-spacing: 0.07em; text-transform: uppercase; text-decoration: none; line-height: 1.2; border-radius: 0; cursor: pointer; transition: background-color 120ms steps(2, end), color 120ms steps(2, end); } .ds-btn-plain:hover { background-color: var(--ink, #101314); color: var(--paper, #f1f3f4); } .ds-btn:focus-visible { outline: 3px solid var(--ink, #101314); outline-offset: 2px; }"
+    },
+    {
+      "name": "Availability Stamp",
+      "kind": "chip",
+      "refersTo": "stamp",
+      "description": "Used once per site, directly under the name. The heavier sibling of the chip: 2px edge, chartreuse fill, wide tracking.",
+      "html": "<span class=\"ds-stamp\">Open to junior and graduate roles</span>",
+      "css": ".ds-stamp { display: inline-block; padding: 0.5rem 1rem; background-color: var(--accent, #c6ef3e); color: var(--on-accent, #101314); border: 2px solid var(--ink, #101314); border-radius: 0; font-family: 'JetBrains Mono', ui-monospace, Menlo, Consolas, monospace; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.11em; text-transform: uppercase; line-height: 1.3; }"
+    },
+    {
+      "name": "Status Chip",
+      "kind": "chip",
+      "refersTo": "chip",
+      "description": "A project's status. Bordered and transparent by default; the live variant is the only chip that takes the accent fill.",
+      "html": "<span class=\"ds-chip\">Complete</span> <span class=\"ds-chip ds-chip-live\">In development</span>",
+      "css": ".ds-chip { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.3em 0.6em; border: 1px solid var(--ink, #101314); border-radius: 0; font-family: 'JetBrains Mono', ui-monospace, Menlo, Consolas, monospace; font-size: 0.75rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; line-height: 1.3; white-space: nowrap; color: var(--ink, #101314); } .ds-chip-live { background-color: var(--accent, #c6ef3e); color: var(--on-accent, #101314); }"
+    },
+    {
+      "name": "Masthead Navigation",
+      "kind": "nav",
+      "refersTo": "nav-link",
+      "description": "Mono micro caps under a 6px rule. The current section is stamped in accent, never underlined.",
+      "html": "<nav class=\"ds-nav\"><ul class=\"ds-nav-list\"><li><a class=\"ds-nav-link ds-nav-link-active\" href=\"#\">Home</a></li><li><a class=\"ds-nav-link\" href=\"#\">Uni Projects</a></li><li><a class=\"ds-nav-link\" href=\"#\">About</a></li><li><a class=\"ds-nav-link\" href=\"#\">Contact</a></li></ul></nav>",
+      "css": ".ds-nav-list { display: flex; flex-wrap: wrap; gap: 0.25rem 0.5rem; margin: 0; padding: 0; list-style: none; } .ds-nav-link { display: block; padding: 0.4em 0.55em; font-family: 'JetBrains Mono', ui-monospace, Menlo, Consolas, monospace; font-size: 0.6875rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; color: var(--ink-2, #454d50); border: 1px solid transparent; border-radius: 0; transition: background-color 120ms steps(2, end), color 120ms steps(2, end), border-color 120ms steps(2, end); } .ds-nav-link:hover { color: var(--ink, #101314); border-color: var(--ink, #101314); } .ds-nav-link-active, .ds-nav-link-active:hover { background-color: var(--accent, #c6ef3e); color: var(--on-accent, #101314); border-color: var(--ink, #101314); font-weight: 600; } .ds-nav-link:focus-visible { outline: 3px solid var(--ink, #101314); outline-offset: 2px; }"
+    },
+    {
+      "name": "Inline Link",
+      "kind": "custom",
+      "refersTo": "link-inline",
+      "description": "Ink type distinguished from prose only by a 2px deep-chartreuse underline. Hover fills the ground with the bright accent.",
+      "html": "<p class=\"ds-link-demo\">Certifications: 3 total, 1 in progress. <a class=\"ds-link\" href=\"#\">Full list on About</a></p>",
+      "css": ".ds-link-demo { font-family: Archivo, system-ui, sans-serif; font-size: 1.0625rem; line-height: 1.6; color: var(--ink, #101314); } .ds-link { color: var(--ink, #101314); text-decoration: none; border-bottom: 2px solid var(--accent-deep, #6b8a0d); padding-bottom: 1px; transition: background-color 120ms steps(2, end), border-color 120ms steps(2, end); } .ds-link:hover { background-color: var(--accent, #c6ef3e); border-bottom-color: var(--ink, #101314); } .ds-link:focus-visible { outline: 3px solid var(--ink, #101314); outline-offset: 2px; }"
+    },
+    {
+      "name": "Section Header",
+      "kind": "custom",
+      "refersTo": null,
+      "description": "A 3px rule, the deep-chartreuse pixel mark, the section name in condensed uppercase, and an optional mono meta value aligned right.",
+      "html": "<div class=\"ds-head\"><div class=\"ds-head-row\"><h2 class=\"ds-head-title\"><svg class=\"ds-head-mark\" width=\"12\" height=\"12\" viewBox=\"0 0 12 12\" fill=\"currentColor\" aria-hidden=\"true\"><rect x=\"0\" y=\"0\" width=\"4\" height=\"4\"/><rect x=\"8\" y=\"0\" width=\"4\" height=\"4\"/><rect x=\"4\" y=\"4\" width=\"4\" height=\"4\"/><rect x=\"0\" y=\"8\" width=\"4\" height=\"4\"/><rect x=\"8\" y=\"8\" width=\"4\" height=\"4\"/></svg>Uni Projects</h2><p class=\"ds-head-meta\">2 entries</p></div></div>",
+      "css": ".ds-head { border-top: 3px solid var(--rule-strong, #101314); padding-top: 0.75rem; } .ds-head-row { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 0.5rem 1.5rem; } .ds-head-title { display: flex; align-items: baseline; gap: 0.75rem; margin: 0; font-family: Archivo, system-ui, sans-serif; font-size: clamp(1.375rem, 1.15rem + 1.1vw, 2rem); font-weight: 800; font-stretch: 80%; text-transform: uppercase; letter-spacing: 0.01em; line-height: 1.05; color: var(--ink, #101314); } .ds-head-mark { flex: none; color: var(--accent-deep, #6b8a0d); transform: translateY(-0.06em); } .ds-head-meta { margin: 0; font-family: 'JetBrains Mono', ui-monospace, Menlo, Consolas, monospace; font-size: 0.75rem; font-weight: 500; letter-spacing: 0.09em; text-transform: uppercase; color: var(--ink-3, #5e676a); }"
+    },
+    {
+      "name": "Fixed-Field Row",
+      "kind": "custom",
+      "refersTo": null,
+      "description": "The repeated structural unit of the whole site. Mono uppercase label in a fixed left column, value right, hairline beneath.",
+      "html": "<dl class=\"ds-fields\"><div class=\"ds-field\"><dt class=\"ds-field-label\">Languages</dt><dd class=\"ds-field-value\">C++, C#, JavaScript, Python</dd></div><div class=\"ds-field\"><dt class=\"ds-field-label\">Education</dt><dd class=\"ds-field-value\">BSc Computer Games Programming, 2023</dd></div></dl>",
+      "css": ".ds-fields { margin: 0; border-top: 1px solid var(--rule, #cdd5d5); } .ds-field { display: grid; grid-template-columns: 1fr; gap: 0.25rem; padding-block: 0.75rem; border-bottom: 1px solid var(--rule, #cdd5d5); } .ds-field-label { font-family: 'JetBrains Mono', ui-monospace, Menlo, Consolas, monospace; font-size: 0.75rem; font-weight: 500; letter-spacing: 0.09em; text-transform: uppercase; color: var(--ink-3, #5e676a); } .ds-field-value { margin: 0; font-family: Archivo, system-ui, sans-serif; font-size: 1.0625rem; line-height: 1.55; color: var(--ink, #101314); } @media (min-width: 46rem) { .ds-field { grid-template-columns: 9rem minmax(0, 1fr); gap: 1.5rem; align-items: baseline; padding-block: 1rem; } }"
+    },
+    {
+      "name": "Section Index Row",
+      "kind": "custom",
+      "refersTo": null,
+      "description": "A full-width listing row. The whole row fills accent on hover and its arrow nudges 4px, the only transform in the system.",
+      "html": "<ul class=\"ds-index\"><li><a class=\"ds-index-row\" href=\"#\"><span class=\"ds-index-main\"><span class=\"ds-index-title\">Uni Projects</span><span class=\"ds-index-blurb\">Work from my BSc in Computer Games Programming.</span></span><span class=\"ds-index-meta\"><span class=\"ds-index-count\">2 entries</span><span class=\"ds-index-arrow\" aria-hidden=\"true\">→</span></span></a></li></ul>",
+      "css": ".ds-index { margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--rule, #cdd5d5); } .ds-index-row { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 0.75rem 1.5rem; padding-block: 1.5rem; padding-inline: 0.5rem; border-bottom: 1px solid var(--rule, #cdd5d5); text-decoration: none; color: var(--ink, #101314); transition: background-color 120ms steps(2, end); } .ds-index-row:hover { background-color: var(--accent, #c6ef3e); } .ds-index-title { display: block; font-family: Archivo, system-ui, sans-serif; font-size: clamp(1.375rem, 1.15rem + 1.1vw, 2rem); font-weight: 800; font-stretch: 80%; text-transform: uppercase; letter-spacing: 0.005em; line-height: 1.05; } .ds-index-blurb { display: block; max-width: 46ch; margin-top: 0.5rem; font-family: Archivo, system-ui, sans-serif; font-size: 1.0625rem; line-height: 1.5; color: var(--ink-2, #454d50); } .ds-index-row:hover .ds-index-blurb { color: var(--on-accent, #101314); } .ds-index-meta { display: flex; align-items: baseline; gap: 1rem; flex: none; } .ds-index-count { font-family: 'JetBrains Mono', ui-monospace, Menlo, Consolas, monospace; font-size: 0.75rem; font-weight: 500; letter-spacing: 0.09em; text-transform: uppercase; color: var(--ink-3, #5e676a); } .ds-index-row:hover .ds-index-count { color: var(--on-accent, #101314); } .ds-index-arrow { font-size: 1.5rem; line-height: 1; transition: transform 120ms steps(2, end); } .ds-index-row:hover .ds-index-arrow { transform: translateX(4px); } .ds-index-row:focus-visible { outline: 3px solid var(--ink, #101314); outline-offset: 2px; }"
+    },
+    {
+      "name": "Pending Link",
+      "kind": "custom",
+      "refersTo": "pending-tag",
+      "description": "Unresolved content as an honest gap: quiet mono, a dotted hairline underline and a bordered To come tag. Not an anchor, not hoverable.",
+      "html": "<ul class=\"ds-link-list\"><li><a class=\"ds-entry-link\" href=\"#\">Repository<span class=\"ds-entry-arrow\" aria-hidden=\"true\">↗</span></a></li><li class=\"ds-link-pending\">Live demo<span class=\"ds-pending-tag\">To come</span></li></ul>",
+      "css": ".ds-link-list { display: flex; flex-wrap: wrap; gap: 0.5rem 1rem; margin: 0; padding: 0; list-style: none; } .ds-entry-link { display: inline-flex; align-items: baseline; gap: 0.5rem; padding: 0.1em 0.2em; font-family: 'JetBrains Mono', ui-monospace, Menlo, Consolas, monospace; font-size: 0.8125rem; font-weight: 600; letter-spacing: 0.05em; text-decoration: none; color: var(--ink, #101314); border-bottom: 2px solid var(--accent-deep, #6b8a0d); transition: background-color 120ms steps(2, end), border-color 120ms steps(2, end); } .ds-entry-link:hover { background-color: var(--accent, #c6ef3e); border-bottom-color: var(--ink, #101314); } .ds-entry-link:focus-visible { outline: 3px solid var(--ink, #101314); outline-offset: 2px; } .ds-entry-arrow { font-size: 0.9em; } .ds-link-pending { display: inline-flex; align-items: baseline; gap: 0.5rem; padding: 0.1em 0.2em; font-family: 'JetBrains Mono', ui-monospace, Menlo, Consolas, monospace; font-size: 0.8125rem; font-weight: 500; letter-spacing: 0.05em; color: var(--ink-3, #5e676a); border-bottom: 2px dotted var(--rule, #cdd5d5); } .ds-pending-tag { padding: 0.1em 0.4em; border: 1px solid var(--rule, #cdd5d5); font-size: 0.6875rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-3, #5e676a); }"
+    },
+    {
+      "name": "Bordered Block",
+      "kind": "card",
+      "refersTo": null,
+      "description": "The only closed container in the system, and at most one per route: 3px near-black frame on white with a mono strip divided by a hairline. Not a card, it has no radius and no shadow.",
+      "html": "<section class=\"ds-block\"><p class=\"ds-block-strip\"><span>Ref DP-2026</span><span>London, UK</span></p><div class=\"ds-block-body\"><p class=\"ds-block-headline\">Trainee Software Engineer, London (UK)</p><p class=\"ds-block-copy\">Three plain sentences that make the case, capped at 58ch so the column reads as a printed measure.</p></div></section>",
+      "css": ".ds-block { border: 3px solid var(--rule-strong, #101314); border-radius: 0; background-color: var(--paper-raised, #ffffff); } .ds-block-strip { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.5rem 1rem; margin: 0; padding: 0.75rem 1rem; border-bottom: 1px solid var(--rule, #cdd5d5); font-family: 'JetBrains Mono', ui-monospace, Menlo, Consolas, monospace; font-size: 0.75rem; font-weight: 500; letter-spacing: 0.11em; text-transform: uppercase; color: var(--ink-3, #5e676a); } .ds-block-body { display: grid; gap: 1.5rem; padding: 1.5rem 1rem 2rem; } .ds-block-headline { margin: 0; font-family: Archivo, system-ui, sans-serif; font-size: clamp(1.1875rem, 1.09rem + 0.5vw, 1.4375rem); font-weight: 600; font-stretch: 92%; letter-spacing: -0.01em; line-height: 1.25; color: var(--ink, #101314); } .ds-block-copy { max-width: 58ch; margin: 0; font-family: Archivo, system-ui, sans-serif; font-size: clamp(1.0625rem, 1rem + 0.3vw, 1.1875rem); line-height: 1.65; color: var(--ink-2, #454d50); } @media (min-width: 46rem) { .ds-block-strip, .ds-block-body { padding-inline: 2rem; } }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Appointments Page",
+    "overview": "This is a printed classifieds sheet rendered in a browser. A recruiter reading it is meant to recognise the format before they read a word: a heavy masthead rule with the name at the left and the sections listed as mono labels at the right, one bordered display advertisement carrying the candidate, then ruled listing sections with fixed-field rows underneath. Every convention comes from newsprint economics, hairline rules instead of containers, a reference code instead of a badge, a field label in the left column and its value in the right, and nothing comes from the developer-portfolio default of hero, tech pills and soft-shadowed cards.\n\nThe material is a cool grey-white stock, deliberately not cream, printed in near-black. There is no third material: no shadow, no gradient, no rounded corner, no card anywhere in the build. Depth is entirely a matter of line weight and paper tone. What separates a section from a section is a 3px rule, what separates the sheet from the browser is a 6px rule, what separates one entry from the next is a 1px hairline. One acid chartreuse breaks the greyscale, and it only ever appears as a fill behind near-black lettering.\n\nDensity is high and deliberately unpadded. Rows are close-set, columns are fixed, and the type ramp condenses as it gets bigger, so the largest thing on the page is also the narrowest. The one authored gesture is a hard 120ms two-step snap on background and colour: state changes land like a sprite swapping frames, not like a UI easing in. There is nothing else in motion, anywhere.",
+    "keyCharacteristics": [
+      "Cool paper ground, near-black ink, one acid chartreuse used only as a fill",
+      "Hairline / section / masthead rule ladder at 1px, 3px, 6px",
+      "Archivo's width axis carries the hierarchy: bigger type is narrower type",
+      "Mono is a label material only, refs, field labels, dates, counts, button lettering",
+      "Fixed-field rows (mono label left, value right) as the repeated structural unit",
+      "Zero radius, zero shadow, zero gradient, no scroll animation",
+      "One 120ms steps(2, end) snap is the entire motion vocabulary"
+    ],
+    "rules": [
+      {
+        "name": "The Fill, Not The Ink Rule",
+        "body": "Bright accent is a background behind near-black text. It is never set as type on paper and never used as a border on its own. The single inversion in the build is the accent button's hover, where the pairing flips whole, accent lettering on near-black, which keeps the accent bound to a near-black partner in both directions.",
+        "section": "colors"
+      },
+      {
+        "name": "The Two Greens Rule",
+        "body": "accent fills, accent-deep marks. Any chartreuse that has to carry meaning without text behind it, the pixel mark and the link underline, uses the deep value, because it is the only one that clears 3:1 against paper.",
+        "section": "colors"
+      },
+      {
+        "name": "The Greyscale Default Rule",
+        "body": "At rest a page shows accent in at most three places: the availability stamp, the primary button, and the active nav item. Everything else earns colour only under the cursor.",
+        "section": "colors"
+      },
+      {
+        "name": "The Condensing Ladder Rule",
+        "body": "Archivo's width axis carries hierarchy alongside size. The bigger the type, the narrower it is set: 72% for the name, 78% for the masthead and footer wordmarks, 80% for section headers and index titles, 88% for entry titles, 92% for the advertisement headline, and normal width for everything set as sentences. Never set large type at normal width, and never condense running prose.",
+        "section": "typography"
+      },
+      {
+        "name": "The Mono Is A Label Rule",
+        "body": "Monospace is confined to reference codes, field labels, dates, counts, statuses and button lettering. It never sets a sentence, a summary or a lede. If it is prose, it is Archivo.",
+        "section": "typography"
+      },
+      {
+        "name": "The Caps Are Structural Rule",
+        "body": "Uppercase marks a field or a heading, never a sentence. Mono labels, section headers, index titles and buttons are uppercased; entry titles, ledes and body copy are not.",
+        "section": "typography"
+      },
+      {
+        "name": "The Fixed Field Rule",
+        "body": "The repeated structural unit across the whole site is a fixed-field row: a mono uppercase label in the left column, its value in the right, a 1px hairline beneath, and the group opened by a hairline above. At-a-glance, the About record, About skills, project stack and links, footer contacts and the contact coupon are all the same row. New content types adopt the row rather than inventing a container.",
+        "section": "layout"
+      },
+      {
+        "name": "The Print-Flat Rule",
+        "body": "Nothing lifts. If an element needs to separate from its neighbour, it takes a rule or a paper tone, never a shadow and never a radius.",
+        "section": "elevation"
+      },
+      {
+        "name": "The Snap Rule",
+        "body": "The site has one authored motion token: 120ms steps(2, end), applied only to background-color, color and border-color. State lands in two hard frames like a sprite swapping, never as an ease. The only transform in the build is a 4px horizontal nudge on the index-row arrow. There are no scroll animations, reveals, parallax or entrance transitions, and a prefers-reduced-motion block collapses all durations to 0.01ms.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do use the accent as a fill behind near-black lettering, and accent-deep for any chartreuse that has to carry meaning without text on it (3:1 minimum against paper).",
+      "Do build new content as fixed-field rows: mono uppercase label left, value right, 1px hairline beneath, fixed label column (6rem or 9rem) from 46rem up.",
+      "Do separate with the rule ladder, 1px between rows, 3px for a section head, 6px for the sheet's top and bottom edge.",
+      "Do condense large type on Archivo's width axis (72-92%) and leave prose at normal width.",
+      "Do transition only background-color, color and border-color, and only with 120ms steps(2, end).",
+      "Do render unresolved content as a greyed mono row with a bordered To come tag rather than as a link that 404s.",
+      "Do keep the focus ring as the global 3px near-black outline at 2px offset on every interactive element."
+    ],
+    "donts": [
+      "Don't add border-radius, box-shadow or a gradient. The build has none of the three and the flatness is the format.",
+      "Don't set the bright accent as type on paper, or as a standalone border. It fills, it does not letter.",
+      "Don't introduce a card, a panel or a wrapper with its own background to group content. Group with a rule, or with the one bordered block a route is allowed.",
+      "Don't use monospace for a sentence, a summary or a lede.",
+      "Don't ease a transition or add a scroll animation, reveal or parallax. The only transform in the system is the 4px arrow nudge.",
+      "Don't add a second bordered block to a route, or a second display-scale name to a page. The name is set once, on Home.",
+      "Don't let a fixed-field label column go fluid at desktop width. Fixed labels are what makes the sheet read as print."
+    ]
+  }
+}

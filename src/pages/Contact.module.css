@@ -1,0 +1,113 @@
+.lede {
+  max-width: 58ch;
+  margin-block-start: var(--sp-5);
+  font-size: var(--fs-md);
+  line-height: 1.65;
+  color: var(--ink-2);
+}
+
+.coupon {
+  margin-block-start: var(--sp-7);
+  border: 3px solid var(--rule-strong);
+  background-color: var(--paper-raised);
+}
+
+.couponStrip {
+  padding: var(--sp-3) var(--sp-4);
+  border-block-end: 1px solid var(--rule);
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  font-weight: 500;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+
+.links {
+  padding: 0;
+}
+
+.link {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--sp-2) var(--sp-4);
+  padding: var(--sp-4);
+  border-block-end: 1px solid var(--rule);
+  text-decoration: none;
+  color: var(--ink);
+  transition: background-color var(--snap);
+}
+
+.link:hover {
+  background-color: var(--accent);
+}
+
+/* Not yet a real address, so not a link and not hoverable. */
+.linkPending,
+.linkPending:hover {
+  background-color: transparent;
+  color: var(--ink-3);
+  cursor: default;
+}
+
+.pendingTag {
+  flex: none;
+  padding: 0.15em 0.45em;
+  border: 1px solid var(--rule);
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+
+/* On narrow screens the label takes its own line so the value and its arrow
+   always share one row. Side by side, a long email address wrapped the arrow
+   onto a second line and the rows stopped lining up with each other. */
+.linkLabel {
+  flex: 0 0 100%;
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  font-weight: 500;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+
+.link:hover .linkLabel {
+  color: var(--on-accent);
+}
+
+.linkValue {
+  flex: 1 1 auto;
+  min-width: 0;
+  font-size: var(--fs-md);
+  font-weight: 600;
+  word-break: break-word;
+}
+
+.linkArrow {
+  flex: none;
+  font-size: 1.125rem;
+  line-height: 1;
+}
+
+.couponFoot {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-3);
+  padding: var(--sp-5) var(--sp-4);
+}
+
+@media (min-width: 46rem) {
+  .couponStrip,
+  .link,
+  .couponFoot {
+    padding-inline: var(--sp-6);
+  }
+
+  .linkLabel {
+    flex: 0 0 5rem;
+  }
+}
