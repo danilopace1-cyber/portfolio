@@ -11,10 +11,13 @@ library, no UI dependencies. The site is meant to be a work sample as much as a 
 
 ## Where we left off
 
-_Last updated 27 July 2026._
+_Last updated 31 July 2026._
 
 **The site is built, deployed and live.** Design, build, accessibility pass and deployment are all
-finished. The only thing left is real content.
+finished. Both university projects now carry real content. The personal projects do not yet.
+
+**We stopped deliberately part way through populating content.** Uni Projects is finished. Personal
+Projects is the next job and nothing has been started on it.
 
 ### Done
 
@@ -25,14 +28,27 @@ finished. The only thing left is real content.
   skills list, all three certifications, education, work dates, email, LinkedIn and GitHub.
 - `public/cv.pdf` replaced with the real CV.
 - SEO: title, description, Open Graph and canonical all point at the live URL.
+- The GitHub contact row in the footer is live and points at a real profile.
+- **Uni Projects is finished.** Two real entries, both with real screenshots:
+  - `UNI-01 BorderBreak` — Unreal Engine 5, Blueprints, 2023. Final year project. Repository link is
+    live at `danilopace1-cyber/BorderBreak-Showcase`, which is public.
+  - `UNI-02 OtherWordly` — Unity, C#, 2022. Coursework module CI5515. Repository link is still a
+    greyed "To come", because the project is tied to the old university Git remote and has not been
+    rehosted yet.
+  - The two leftover seeded uni entries were deleted. They were garbled guesses at these same two
+    projects, so the page now shows two entries rather than three.
+  - Page copy that described the uni work as "C++" was corrected to "C# and Blueprints" in three
+    places: the Uni Projects intro, its meta description, and the Home index blurb. Neither real
+    project is written in C++. C++ remains in the skills list and About prose, where it is a true
+    claim about the degree rather than about these two projects.
 
 ### Outstanding, in priority order
 
-**1. Real project content. This is the one that matters.** Everything else is optional polish.
+**1. Personal project content. This is the one that matters.** Everything else is optional polish.
 
-Edit `src/data/projects.js`. Three entries under `uniProjects`, two under `personalProjects`. Each
-one currently has a made-up title and summary marked `// PLACEHOLDER — replace with real content`.
-For each project you need:
+Edit `src/data/projects.js`. Two entries under `personalProjects`, both still carrying a made-up
+title and summary marked `// PLACEHOLDER — replace with real content`. `uniProjects` is done and
+needs no further work. For each remaining project you need:
 
 - `title` — the real project name
 - `year`, `role` — as they actually were
@@ -43,9 +59,6 @@ For each project you need:
 - `imageAlt` — describe what is actually in the screenshot
 - `links` — see the warning below
 
-The seeded entries were written from what you told me about your real work, so they are a starting
-shape rather than fiction to delete wholesale. Correct them rather than starting from a blank file.
-
 **Do not change the `PLACEHOLDER_URL` constant at the top of the file.** Replace the individual
 `href: PLACEHOLDER_URL` values one at a time as each project gets a real repository. Change the
 constant and every link on the site goes live at once, all pointing at the same address. While a
@@ -53,17 +66,27 @@ link still holds the sentinel it renders as greyed "To come" text instead of a c
 is deliberate: a recruiter who clicks "Repository" and lands on a 404 trusts the whole site less
 than one who sees an honest gap.
 
-**2. Link preview image.** Optional, but worth doing before the link goes on applications. Save a
+**2. Reshoot the OtherWordly screenshot.** The only weak asset on the site. The source image was
+579x277, so after cropping to 8:5 it is 443x277, against 1200x750 for BorderBreak. At the desktop
+listing width of 272px it is fine, but the entry stacks on a phone and the image goes close to full
+width, where it looks visibly soft next to the other entry. The crop also cost 136px of width and
+clipped the left edge of the health bar. A fresh 1920x1080 grab from the Unity editor fixes both.
+
+**3. Rehost OtherWordly and turn its link on.** It is still on the old university Git remote. Once
+it lives somewhere public, replace its `href: PLACEHOLDER_URL` and the greyed "To come" becomes a
+working link on its own.
+
+**4. Link preview image.** Optional, but worth doing before the link goes on applications. Save a
 1200x630 PNG as `public/og-image.png`, then uncomment the two commented-out lines in the head of
 `index.html` and change `twitter:card` to `summary_large_image`. Right now a shared link shows text
 only, which is fine but plain.
 
-**3. Git identity mismatch.** Commits are authored as `danilopace99@gmail.com` while the GitHub
+**5. Git identity mismatch.** Commits are authored as `danilopace99@gmail.com` while the GitHub
 account is `danilopace1-cyber`. Unless that address is registered on the account, this work does not
 show on the contribution graph or link to the profile. Add it under github.com → Settings → Emails,
 or change it in GitHub Desktop under File → Options → Git.
 
-**4. Local Node is v21.2.0**, an odd-numbered release that went end of life in June 2024. It builds
+**6. Local Node is v21.2.0**, an odd-numbered release that went end of life in June 2024. It builds
 this project fine, so there is no rush, but odd-numbered Node releases never get long-term support.
 Node 22 or 24 when convenient.
 
@@ -86,8 +109,8 @@ npm install     # only if node_modules is missing
 npm run dev     # http://localhost:5173/portfolio/
 ```
 
-Edit `src/data/projects.js`, check it at both a narrow and a wide window, then commit and push. The
-site redeploys itself.
+Edit the `personalProjects` array in `src/data/projects.js`, check it at both a narrow and a wide
+window, then commit and push. The site redeploys itself.
 
 ---
 
@@ -117,11 +140,13 @@ npm run preview   # serve the production build locally to check it before pushin
 
 ```
 public/
-  cv.pdf                       the CV the Download button serves (PLACEHOLDER)
+  cv.pdf                       the CV the Download button serves
   favicon.svg
   404.html                     GitHub Pages deep-link fix, see "Routing" below
   images/projects/
-    placeholder.svg            neutral placeholder used by every project entry
+    placeholder.svg            neutral placeholder, still used by both personal projects
+    borderbreak.jpg            UNI-01, 1200x750
+    otherwordly.jpg            UNI-02, 443x277, wants reshooting
 src/
   data/
     profile.js                 name, headline, intro, About text, skills, certs, contact links
@@ -161,14 +186,14 @@ looks like this:
 
 ```js
 {
-  ref: 'UNI-01',                    // shown as the reference code, must be unique
-  title: 'Unity Team Project',
-  role: 'Team leader',              // optional, omit the line if not useful
-  year: '2023',
+  ref: 'UNI-02',                    // shown as the reference code, must be unique
+  title: 'OtherWordly',
+  role: 'Solo project',             // optional, omit the line if not useful
+  year: '2022',
   status: 'Completed',              // 'In development' gets the green chip instead
   summary: 'Two or three sentences.',
   tech: ['Unity', 'C#'],            // shown as the STACK row
-  image: 'images/projects/placeholder.svg',
+  image: 'images/projects/otherwordly.jpg',
   imageAlt: 'Describe what the image shows.',
   links: [                          // optional, delete the ones you do not have
     { label: 'Repository', href: 'https://github.com/...' },
@@ -181,11 +206,22 @@ looks like this:
 Add or remove entries freely. The page headings, entry counts and layout all follow the data.
 
 **Placeholder links do not render as links.** Any `href` still set to `PLACEHOLDER_URL` shows up as
-greyed text with a "To come" tag instead of a clickable link, and the same applies to the GitHub row
-in `contactLinks` while it has `pending: true`. That is deliberate: a recruiter who clicks
-"Repository" and lands on a GitHub 404 trusts the whole site less than one who sees an honest gap.
-Put a real URL in and it becomes a working link automatically. For the GitHub contact row, also
-delete the `pending: true` line.
+greyed text with a "To come" tag instead of a clickable link. That is deliberate: a recruiter who
+clicks "Repository" and lands on a GitHub 404 trusts the whole site less than one who sees an honest
+gap. Put a real URL in and it becomes a working link automatically.
+
+The GitHub row in `contactLinks` works the same way in reverse. It is currently live. Adding
+`pending: true` back to it takes it offline and renders it as plain text again.
+
+**Check a repository is public before you link it.** A private repo serves a 404 to anyone not
+signed in as you, which is exactly the failure the sentinel exists to prevent, and it looks
+identical to a working link from your own browser. From a terminal:
+
+```bash
+curl -s -o /dev/null -w "%{http_code}\n" -L https://github.com/danilopace1-cyber/REPO-NAME
+```
+
+`200` means public. `404` means private or missing.
 
 Placeholder images behave the same way. While `image` is still `PLACEHOLDER_IMAGE`, the entry renders
 it as a decorative graphic with an empty `alt`, so a screen reader is not read a note written for
@@ -202,8 +238,39 @@ Drop your screenshots into `public/images/projects/`, then point each entry's `i
 image: 'images/projects/workout-tracker.png',
 ```
 
-Paths are relative to `public/`, with no leading slash. A 16:10 image around 1200px wide fits the
-layout without cropping oddly. Always write a real `imageAlt` describing what is in the picture.
+Paths are relative to `public/`, with no leading slash. Always write a real `imageAlt` describing
+what is in the picture.
+
+**Target: 1200x750, JPEG, under about 250KB.** The media well is 8:5 and uses `object-fit: cover`,
+so anything wider gets cropped at the sides and anything smaller gets upscaled and looks soft. Raw
+screenshots are usually the wrong shape and far too heavy. A 3.3MB PNG would have been the single
+heaviest thing on a site whose whole point is loading instantly on a phone on mobile data.
+
+There is no image tooling in this project and none is needed. Windows can do it from PowerShell with
+no installs, which is how `borderbreak.jpg` was made (3.3MB PNG down to 212KB):
+
+```powershell
+Add-Type -AssemblyName System.Drawing
+$src = [System.Drawing.Image]::FromFile("C:\path\to\raw-screenshot.png")
+$cropW = [int]([math]::Round($src.Height * 8 / 5))     # crop to 8:5, centred
+$cropX = [int](($src.Width - $cropW) / 2)
+$bmp = New-Object System.Drawing.Bitmap 1200, 750
+$g = [System.Drawing.Graphics]::FromImage($bmp)
+$g.InterpolationMode = [System.Drawing.Drawing2D.InterpolationMode]::HighQualityBicubic
+$g.DrawImage($src, (New-Object System.Drawing.Rectangle 0,0,1200,750), `
+             $cropX, 0, $cropW, $src.Height, [System.Drawing.GraphicsUnit]::Pixel)
+$codec = [System.Drawing.Imaging.ImageCodecInfo]::GetImageEncoders() |
+         Where-Object { $_.MimeType -eq 'image/jpeg' }
+$ep = New-Object System.Drawing.Imaging.EncoderParameters 1
+$ep.Param[0] = New-Object System.Drawing.Imaging.EncoderParameter `
+               ([System.Drawing.Imaging.Encoder]::Quality), 84
+$bmp.Save("D:\Claude\Web\public\images\projects\NAME.jpg", $codec, $ep)
+$g.Dispose(); $bmp.Dispose(); $src.Dispose()
+```
+
+Look at the result before shipping it. A centred crop can cut something that matters, such as a HUD
+element at the edge of a game screenshot, and it is quicker to change `$cropX` than to notice it
+later on the live site.
 
 ### 3. The CV
 
@@ -213,13 +280,14 @@ something else, change `cvPath` at the bottom of `src/data/profile.js` to match.
 
 ### 4. Your GitHub username and the live URL
 
-Done already: `src/data/profile.js` (the GitHub contact row) and `index.html` (`og:url` and
-`canonical`, both now pointing at the live URL).
+Done already: `src/data/profile.js` (the GitHub contact row, now a live link) and `index.html`
+(`og:url` and `canonical`, both pointing at the live URL).
 
-Still to do: `src/data/projects.js`, where every project link still points at `PLACEHOLDER_URL`.
-Replace the individual `href: PLACEHOLDER_URL` values as each project gets a real repository. Do not
-change the `PLACEHOLDER_URL` constant itself, or every link goes live at once pointing at the same
-address.
+Still to do in `src/data/projects.js`: three links still point at `PLACEHOLDER_URL` and render as
+greyed "To come" text. One is OtherWordly's repository, which needs rehosting off the old university
+remote first. The other two belong to the personal projects, which have no real content yet. Replace
+the individual `href: PLACEHOLDER_URL` values as each project gets a real repository. Do not change
+the `PLACEHOLDER_URL` constant itself, or every link goes live at once pointing at the same address.
 
 Everything else on the About page, the skills list and the certifications is already real content.
 

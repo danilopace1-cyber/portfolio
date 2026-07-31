@@ -81,10 +81,8 @@ export const contactLinks = [
     href: 'https://www.linkedin.com/in/danilo-pace',
   },
   {
-    // PLACEHOLDER — replace with real content: swap your-username for your GitHub
-    // handle in both fields, then delete the `pending: true` line to turn this
-    // back into a real link. While pending is set it renders as plain text, so
-    // nobody clicks through to a 404.
+    // Live. To take this row offline again, add `pending: true` and it renders
+    // as plain text instead of a link, so nobody clicks through to a 404.
     label: 'GitHub',
     value: 'github.com/danilopace1-cyber',
     href: 'https://github.com/danilopace1-cyber',

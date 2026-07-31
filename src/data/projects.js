@@ -41,54 +41,34 @@ export const PLACEHOLDER_IMAGE = 'images/projects/placeholder.svg'
 
 export const uniProjects = [
   {
-    // PLACEHOLDER — replace with real content
     ref: 'UNI-01',
-    title: 'Unity Team Project',
-    role: 'Team leader',
-    year: '2023',
-    status: 'Completed',
-    summary:
-      'A Unity game built by a small team of student developers, with me leading the project. I ran the full development lifecycle from planning through to release, set up the branching strategy, and kept the team unblocked week to week. Version control ran across GitHub and GitLab.',
-    tech: ['Unity', 'C#', 'GitHub', 'GitLab'],
-    image: PLACEHOLDER_IMAGE,
-    imageAlt: 'Placeholder image. Replace with a screenshot of the Unity team project.',
-    links: [
-      // PLACEHOLDER — replace with real content, or delete the entries you do not have
-      { label: 'Repository', href: PLACEHOLDER_URL },
-      { label: 'Video', href: PLACEHOLDER_URL },
-    ],
-  },
-  {
-    // PLACEHOLDER — replace with real content
-    ref: 'UNI-02',
-    title: 'Unreal Engine AI Project',
+    title: 'BorderBreak',
     role: 'Solo project',
     year: '2023',
     status: 'Completed',
     summary:
-      'An Unreal Engine project written in C++, focused on AI systems and how the player interacts with them. I built the decision logic driving the AI agents, then profiled the interaction code and cut the work it was doing each frame.',
-    tech: ['Unreal Engine', 'C++'],
-    image: PLACEHOLDER_IMAGE,
-    imageAlt: 'Placeholder image. Replace with a screenshot of the Unreal Engine project.',
-    links: [
-      // PLACEHOLDER — replace with real content
-      { label: 'Repository', href: PLACEHOLDER_URL },
-    ],
+      'An open world action RPG built in Unreal Engine 5 for my final year project at Kingston. I built the combat, progression, equipment, dialogue and quest systems, and wired them so that levelling unlocks an ability but an NPC still has to teach it, which gives the player a reason to travel. The enemy spawner hides AI actors when the player leaves a zone rather than destroying them, so enemies never appear out of thin air.',
+    tech: ['Unreal Engine 5', 'Blueprints', 'Git LFS'],
+    image: 'images/projects/borderbreak.jpg',
+    imageAlt:
+      'A knight in gold trimmed plate armour stands in a misty graveyard beside a second armoured figure, with a quest prompt titled Head of the Empire open along the bottom of the screen.',
+    links: [{ label: 'Repository', href: 'https://github.com/danilopace1-cyber/BorderBreak-Showcase' }],
   },
   {
-    // PLACEHOLDER — replace with real content
-    ref: 'UNI-03',
-    title: 'Unity Gameplay Prototype',
+    ref: 'UNI-02',
+    title: 'OtherWordly',
     role: 'Solo project',
     year: '2022',
     status: 'Completed',
     summary:
-      'A smaller Unity project built on my own to take one gameplay mechanic from idea to something playable. I wrote the core systems in C# and kept iterating on the controls until the movement felt right.',
+      'A first person RPG built in Unity for a coursework module at Kingston. I wrote the quest, inventory, equipment, dialogue and enemy AI systems myself, and kept each script generic so one chest prefab could be placed all over the map and configured to drop different items. Enemies are triggered by game events rather than spawned on a timer, so the first skeletons only appear once the player has opened the opening chest.',
     tech: ['Unity', 'C#'],
-    image: PLACEHOLDER_IMAGE,
-    imageAlt: 'Placeholder image. Replace with a screenshot of the Unity gameplay prototype.',
+    image: 'images/projects/otherwordly.jpg',
+    imageAlt:
+      'A first person view across a grass field towards a stone castle, holding a sword, with two skeleton enemies ahead and a health bar and item hotbar along the bottom of the screen.',
     links: [
-      // PLACEHOLDER — replace with real content
+      // Repository pending. The project is still tied to the old university Git
+      // remote, so this renders as an honest "To come" until it is rehosted.
       { label: 'Repository', href: PLACEHOLDER_URL },
     ],
   },

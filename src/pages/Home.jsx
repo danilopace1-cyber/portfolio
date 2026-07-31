@@ -10,7 +10,7 @@ const SECTIONS = [
   {
     to: '/uni-projects',
     title: 'Uni Projects',
-    blurb: 'Work from my BSc in Computer Games Programming. Unity, Unreal Engine, C++ and C#.',
+    blurb: 'Work from my BSc in Computer Games Programming. Unity, Unreal Engine, C# and Blueprints.',
     count: uniProjects.length,
   },
   {
