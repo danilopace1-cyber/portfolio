@@ -51,6 +51,15 @@
   cursor: default;
 }
 
+/* A real value that is not a link. Full ink, unlike a pending row, but no
+   hover fill, because the row itself does nothing. Its button owns the action.
+   No cursor is set: the default resolves to an I-beam over the address, which
+   is what a selectable value should show. */
+.linkStatic,
+.linkStatic:hover {
+  background-color: transparent;
+}
+
 .pendingTag {
   flex: none;
   padding: 0.15em 0.45em;

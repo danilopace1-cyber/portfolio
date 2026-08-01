@@ -1,0 +1,38 @@
+/* A small square control that sits inside a fixed-field row. Same recipe as the
+   global .btn, one step down in weight and padding so it reads as a row action
+   rather than as the page's primary button. */
+
+.button {
+  flex: none;
+  /* Sized for the longest face, COPIED and FAILED at six characters, so the
+     control does not resize under the cursor when its state changes. The font
+     is monospace, so ch is an exact measure here. */
+  min-width: 7.5ch;
+  padding: 0.5em 0.85em;
+  text-align: center;
+  border: 1px solid var(--ink);
+  background-color: transparent;
+  color: var(--ink);
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  line-height: 1.2;
+  cursor: pointer;
+  transition: background-color var(--snap), color var(--snap);
+}
+
+.button:hover {
+  background-color: var(--ink);
+  color: var(--paper);
+}
+
+/* Accent as a fill behind near-black lettering, never as lettering. Hover is
+   pinned to the same values so moving the cursor cannot wipe the confirmation
+   the reader is still looking at. */
+.buttonCopied,
+.buttonCopied:hover {
+  background-color: var(--accent);
+  color: var(--on-accent);
+}

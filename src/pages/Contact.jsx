@@ -1,3 +1,4 @@
+import CopyButton from '../components/CopyButton.jsx'
 import SectionHead from '../components/SectionHead.jsx'
 import { contactLinks, profile, cvPath } from '../data/profile.js'
 import { asset } from '../lib/asset.js'
@@ -26,7 +27,22 @@ export default function Contact() {
 
         <ul className={styles.links}>
           {contactLinks.map((item) => {
-            const isExternal = item.href.startsWith('http')
+            const isExternal = Boolean(item.href) && item.href.startsWith('http')
+
+            /* A copy row is not a link, so the row does not fill on hover and
+               carries no arrow. The value stays selectable text and the button
+               is the shortcut. See the note in profile.js. */
+            if (item.copy) {
+              return (
+                <li key={item.label}>
+                  <div className={`${styles.link} ${styles.linkStatic}`}>
+                    <span className={styles.linkLabel}>{item.label}</span>
+                    <span className={styles.linkValue}>{item.value}</span>
+                    <CopyButton value={item.value} label="email address" />
+                  </div>
+                </li>
+              )
+            }
 
             /* A pending address is rendered as plain text. Making it clickable
                would send a recruiter to a page that does not exist. */

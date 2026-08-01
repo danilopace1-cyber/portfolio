@@ -1,3 +1,4 @@
+import CopyButton from './CopyButton.jsx'
 import { contactLinks, profile } from '../data/profile.js'
 import styles from './Footer.module.css'
 
@@ -15,7 +16,14 @@ export default function Footer() {
           <ul className={styles.links}>
             {contactLinks.map((item) => (
               <li key={item.label}>
-                {item.pending ? (
+                {item.copy ? (
+                  /* Not a link. See the note on the email row in profile.js. */
+                  <div className={`${styles.link} ${styles.linkStatic}`}>
+                    <span className={styles.linkLabel}>{item.label}</span>
+                    <span className={styles.linkValue}>{item.value}</span>
+                    <CopyButton value={item.value} label="email address" />
+                  </div>
+                ) : item.pending ? (
                   <span className={`${styles.link} ${styles.linkPending}`}>
                     <span className={styles.linkLabel}>{item.label}</span>
                     <span className={styles.linkValue}>{item.value}</span>

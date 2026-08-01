@@ -57,6 +57,20 @@
   cursor: default;
 }
 
+/* A real value that is not a link, so no hover fill. Its button owns the
+   action and the address stays selectable text. */
+.linkStatic,
+.linkStatic:hover {
+  background-color: transparent;
+}
+
+/* Let the value take the slack so the button lands on the right edge, where
+   the other rows put their affordance. */
+.linkStatic .linkValue {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
 .linkLabel {
   flex: 0 0 5.5rem;
   font-family: var(--font-mono);

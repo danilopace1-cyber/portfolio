@@ -77,9 +77,16 @@ export const experience = {
 
 export const contactLinks = [
   {
+    // No href on purpose. A `mailto:` only opens something if the machine has a
+    // mail client configured, and on one that does not it does nothing at all,
+    // which reads as a broken link on the most important row on the site. This
+    // renders as plain selectable text with a Copy button instead.
+    //
+    // To go back to a mailto, add `href: 'mailto:danilopace1@gmail.com'` and
+    // drop `copy`. Both the footer and the contact coupon follow this field.
     label: 'Email',
     value: 'danilopace1@gmail.com',
-    href: 'mailto:danilopace1@gmail.com',
+    copy: true,
   },
   {
     label: 'LinkedIn',

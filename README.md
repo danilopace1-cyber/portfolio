@@ -61,6 +61,13 @@ a settled screen, and OtherWordly wants a reshoot and a rehost.
   column is dropped and the text runs full width. This is for an entry that will never have a
   screenshot, which is `This Site`. An entry still waiting on a screenshot should keep
   `image: PLACEHOLDER_IMAGE`, because the empty well is the honest signal that one is coming.
+- **The email address is no longer a `mailto:` link.** It rendered as one and did nothing when
+  clicked, because a mailto only opens something if the machine has a mail client configured, and
+  plenty do not. Nothing happening reads as a broken site, on the one row that matters most. Both
+  the contact coupon and the footer now show the address as plain selectable text with a Copy
+  button beside it, so the fallback is always a manual copy. The behaviour is driven by `copy: true`
+  on the email row in `src/data/profile.js`. Putting an `href` back and dropping `copy` restores
+  the link in both places at once.
 - The Meta certificate lost its "Expected 2026" date on About. The "In progress" chip already says
   it is ongoing, and a published target date is a deadline that can be caught out when it slips.
 
@@ -159,6 +166,7 @@ src/
   components/
     Header.jsx                 masthead and nav
     Footer.jsx                 title block and contact links
+    CopyButton.jsx             copies a value to the clipboard, used by the email row
     SectionHead.jsx            the ruled section header used on every page
     ProjectEntry.jsx           one listing entry
     ProjectListPage.jsx        shared layout for both project pages
