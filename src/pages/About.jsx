@@ -6,7 +6,7 @@ import styles from './About.module.css'
 export default function About() {
   usePageMeta(
     'About',
-    'Danilo Pace: BSc Computer Games Programming at Kingston University London, two years as an IT support technician, now moving into software engineering full time.'
+    'Danilo Pace: BSc Computer Games Programming at Kingston University London, two years as an IT support technician, open to software, support and project roles.'
   )
 
   return (

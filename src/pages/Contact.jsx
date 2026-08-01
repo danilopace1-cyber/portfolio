@@ -7,7 +7,7 @@ import styles from './Contact.module.css'
 export default function Contact() {
   usePageMeta(
     'Contact',
-    'Get in touch with Danilo Pace, trainee software engineer in London. Email, LinkedIn and GitHub.'
+    'Get in touch with Danilo Pace, software and IT professional in London. Email, LinkedIn and GitHub.'
   )
 
   return (
@@ -16,8 +16,8 @@ export default function Contact() {
 
       <p className={styles.lede}>
         Email is the fastest way to reach me and I reply to everything. I am open to junior and
-        graduate software engineering roles in London, and happy to talk about anything on this
-        site.
+        graduate roles in software, support and project work in London, and happy to talk about
+        anything on this site.
       </p>
 
       {/* The response coupon at the foot of the advertisement. */}

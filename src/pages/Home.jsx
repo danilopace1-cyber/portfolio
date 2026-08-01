@@ -27,7 +27,7 @@ export default function Home() {
   // location on the one page every recruiter opens.
   usePageMeta(
     profile.headline,
-    'Danilo Pace is a trainee software engineer in London. BSc Computer Games Programming, two years as an IT support technician, now building with C++, C# and React.'
+    'Danilo Pace works in software and IT in London. BSc Computer Games Programming, two years as an IT support technician, now building with C++, C# and React.'
   )
 
   const certsInProgress = certifications.filter((c) => c.status === 'In progress').length

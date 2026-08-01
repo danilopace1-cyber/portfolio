@@ -1,6 +1,6 @@
 # Danilo Pace — portfolio
 
-Personal portfolio site for Danilo Pace, trainee software engineer in London. Built with React and
+Personal portfolio site for Danilo Pace, software and IT professional in London. Built with React and
 Vite, routed with React Router, styled with plain CSS and CSS modules. No Tailwind, no component
 library, no UI dependencies. The site is meant to be a work sample as much as a description of one.
 

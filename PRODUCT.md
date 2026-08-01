@@ -9,7 +9,8 @@ web
 ## Users
 
 Primary: recruiters, in-house talent partners, and hiring managers screening applicants for
-junior and graduate software engineering roles in London and the wider UK. They arrive from a
+junior and graduate roles across software engineering, project management and IT, in London and
+the wider UK. They arrive from a
 job application, a CV link, or LinkedIn. They are triaging a stack of candidates, usually give
 a site well under a minute, and frequently open it on a phone between other tasks. Their job is
 a fast yes or no on whether this candidate is worth an interview slot.
@@ -20,7 +21,8 @@ the CV file over time without touching component code.
 ## Product Purpose
 
 A personal portfolio site for Danilo Pace whose single job is to get him past CV screening and
-into interviews for junior and graduate software engineering roles. Success is a recruiter
+into interviews for junior and graduate roles across software engineering, project management and
+IT. Success is a recruiter
 understanding, in under a minute, who he is, what he can build, and how to contact him, then
 downloading his CV or clicking through to a project.
 
@@ -62,8 +64,14 @@ Confirmed technical constraints, all binding:
 ## Brand Commitments
 
 - Name: Danilo Pace.
-- Headline, fixed wording: "Trainee Software Engineer, London (UK)".
-- Status line: he is openly looking for junior and graduate software engineering roles in London.
+- Headline, fixed wording: "Software and IT Professional, London (UK)". Changed from "Trainee
+  Software Engineer" in August 2026. Danilo applies for software engineering, project management
+  and IT roles, so the masthead cannot name one of the three. Software stays in first position so
+  the developer applications keep their anchor, and "professional" replaces "trainee" because two
+  years of paid technical work is not a traineeship.
+- Status line: he is openly looking for junior and graduate roles across software, support and
+  project work in London. Avoid the phrasing "moving into IT". After two years in IT support it
+  reads as sideways rather than forward, and it undercuts the software claim.
 - Voice: plain and direct. Short sentences. No buzzwords. No "passionate about crafting
   delightful experiences" register. Claims stay proportionate to a junior candidate.
 - Punctuation rule, binding on all site copy: never use em dashes, never use semicolons. Use
