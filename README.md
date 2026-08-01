@@ -20,6 +20,26 @@ populated. There is no placeholder copy left anywhere on the site.
 **Every project link on the site is now live.** What is left is screenshots and housekeeping. PTgo
 wants one once it has a settled screen, and OtherWorldly wants a reshoot.
 
+### Related repositories
+
+The site links out to three repos, and two of them were built specifically so it could. Work on
+those often lands here as a link change, so they are listed together:
+
+| Repo | Holds | State |
+|---|---|---|
+| `danilopace1-cyber/portfolio` | This site | Live, deploys on push to `main` |
+| `danilopace1-cyber/PTgo` | Full React Native app, `C:\Claude\Apps\PTgo` | Public, active |
+| `danilopace1-cyber/BorderBreak-Showcase` | Docs, screenshots, project report. No source, the project is Blueprints | Public. See outstanding item 3 |
+| `danilopace1-cyber/OtherWorldly-Showcase` | Gameplay C# only, built 1 Aug 2026 from `D:\Uni Projects\OtherWorldly` | Public, wants screenshots |
+
+**The showcase pattern, and why it exists.** Neither university project can be published whole.
+BorderBreak is 25GB and mostly licensed Epic and Flexible Combat System content. OtherWorldly
+carries licensed Unity asset packs plus PlayStation 5 build output, its `.git` is 1.9GB, and two
+files in its history are over GitHub's 100MB per-file limit so a push is rejected outright. Both
+therefore ship as curated showcase repos: the parts that are actually Danilo's, plus documentation.
+**Do not attempt to push either full project to GitHub.** The original OtherWorldly remote is
+Kingston's GitLab, which is no longer accessible, and that is not the blocker. The licensing is.
+
 ### Done
 
 - All five pages built: Home, Uni Projects, Personal Projects, About, Contact. Plus a 404 page.
@@ -89,14 +109,42 @@ listing width of 272px it is fine, but the entry stacks on a phone and the image
 width, where it looks visibly soft next to the other entry. The crop also cost 136px of width and
 clipped the left edge of the health bar. A fresh 1920x1080 grab from the Unity editor fixes both.
 
-**3. Link preview image.** Optional, but worth doing before the link goes on applications. Save a
+**3. Decide what to do about the student ID in the BorderBreak project report.**
+`BorderBreak-Showcase/docs/project-report.pdf` is public and its first page carries `Name: Danilo
+Pace`, `ID Number: K2026867`, a signed plagiarism declaration, and the supervisor's name. The
+README of that repo names the supervisor too. Not high risk on its own, but K2026867 is a real
+identifier tied to university records and was also the old GitLab username, and the supervisor is
+a third party who did not agree to being named on a public repo. Three options: leave it, redact
+page one, or drop the PDF and keep `ARCHITECTURE.md`. **Raised 1 August 2026, not yet decided.**
+
+**4. Confirm the PlayStation 5 wording on UNI-02.** The entry currently reads "built in Unity for a
+coursework module at Kingston, and later built to run on PlayStation 5". That phrasing was chosen
+because the sources disagree: the coursework report at `D:\Uni Projects\Unity\PDFs\otherworldly.pdf`
+lists `Platform: Computer`, while the original repo is named `PS5-OtherWorldly2` and holds real PS5
+build output. If PS5 was the target from the start, tighten it to "targeting PlayStation 5", which
+is the stronger claim. Danilo has confirmed he is comfortable naming PS5 publicly, on the grounds
+that no Sony code or SDK material is published, only his own C#. That decision is settled, do not
+re-raise it.
+
+**5. Link preview image.** Optional, but worth doing before the link goes on applications. Save a
 1200x630 PNG as `public/og-image.png`, then uncomment the two commented-out lines in the head of
 `index.html` and change `twitter:card` to `summary_large_image`. Right now a shared link shows text
 only, which is fine but plain.
 
-**4. Local Node is v21.2.0**, an odd-numbered release that went end of life in June 2024. It builds
+**6. Local Node is v21.2.0**, an odd-numbered release that went end of life in June 2024. It builds
 this project fine, so there is no rush, but odd-numbered Node releases never get long-term support.
 Node 22 or 24 when convenient.
+
+### Candidate next projects
+
+Not started, and neither is on the site yet.
+
+- **`D:\Uni Projects\OpenGL-Renderer`** — spotted but never opened. If it is presentable it would be
+  a third real project and a graphics one, which is a strong differentiator. Treat it exactly like
+  OtherWorldly: check the remote, the repo size, the largest files in history, and any third-party
+  or SDK content **before** proposing anywhere to publish it.
+- **The Meta Front-End course work** is deliberately not a project and should not become one. The
+  course is on hold and what exists is basic HTML. It stays a certification on About.
 
 ### Decisions already made, so they do not get relitigated
 
@@ -122,6 +170,10 @@ Node 22 or 24 when convenient.
 npm install     # only if node_modules is missing
 npm run dev     # http://localhost:5173/portfolio/
 ```
+
+The highest-value next job is **screenshots**, because one OtherWorldly capture fixes two things at
+once: the soft image on this site and the empty `docs/` in the showcase repo. That needs Danilo at
+the Unity editor. The PowerShell crop and compress recipe is further down under "Project images".
 
 Edit the `personalProjects` array in `src/data/projects.js`, check it at both a narrow and a wide
 window, then commit and push. The site redeploys itself.
