@@ -76,38 +76,38 @@ export const uniProjects = [
 
 export const personalProjects = [
   {
-    // PLACEHOLDER — replace with real content
     ref: 'PER-01',
-    title: 'Workout Tracker',
+    title: 'PTgo',
     role: 'Solo project',
-    year: '2025',
+    year: '2026',
     status: 'In development',
     summary:
-      'A React app for planning training sessions and tracking progress over time. It comes out of my own training, where I got tired of managing everything in a spreadsheet. I am building the exercise library and the progress views now.',
-    tech: ['React', 'JavaScript', 'CSS'],
+      'A workout tracker built around the personal trainer and client relationship, written in React Native with a Postgres backend where the trainer and client permissions are enforced by row level security. Trainers keep a library of reusable workouts and assign them to a client as a weekly schedule, and the client logs their sets against it. Assigning copies the workout instead of linking to it, so editing one in the library never changes a plan a client is already following.',
+    tech: ['React Native', 'Expo', 'TypeScript', 'Supabase', 'PostgreSQL'],
+    // PLACEHOLDER — the app has no settled UI to photograph yet. Once a screen
+    // is worth showing, drop a 1200x750 JPEG into public/images/projects/ and
+    // write a real imageAlt. Until then the sentinel renders a neutral graphic
+    // with an empty alt, which is honest.
     image: PLACEHOLDER_IMAGE,
-    imageAlt: 'Placeholder image. Replace with a screenshot of the workout tracker.',
-    links: [
-      // PLACEHOLDER — replace with real content
-      { label: 'Repository', href: PLACEHOLDER_URL },
-    ],
+    imageAlt: 'Placeholder image. Replace with a screenshot of PTgo.',
+    links: [{ label: 'Repository', href: 'https://github.com/danilopace1-cyber/PTgo' }],
   },
   {
-    // PLACEHOLDER — replace with real content
     ref: 'PER-02',
-    title: 'Meta Front-End Course Project',
+    title: 'This Site',
     role: 'Solo project',
-    year: '2025',
+    year: '2026',
     status: 'Completed',
     summary:
-      'A React front end built as part of the Meta Front-End Developer Professional Certificate. It covers component structure, form handling and validation, responsive layout, and writing markup that works for screen readers.',
-    tech: ['React', 'JavaScript', 'CSS'],
-    image: PLACEHOLDER_IMAGE,
-    imageAlt: 'Placeholder image. Replace with a screenshot of the Meta course project.',
-    links: [
-      // PLACEHOLDER — replace with real content
-      { label: 'Repository', href: PLACEHOLDER_URL },
-      { label: 'Live demo', href: PLACEHOLDER_URL },
-    ],
+      'The portfolio you are reading. I built it in React with plain CSS, no Tailwind and no component library, so the site is a sample of the work as well as a description of it. GitHub Pages is a static host with no server side routing, so a redirect file catches deep links and hands the path back to the router, which means a pasted link survives a hard refresh instead of landing on a 404.',
+    tech: ['React', 'Vite', 'React Router', 'CSS', 'GitHub Actions'],
+    // No `image` on purpose, which drops the media well and runs the text full
+    // width. A screenshot of this page, on this page, is a joke the reader has
+    // to work out, and a placeholder well would claim a screenshot is missing
+    // when it is not. The repository link is the proof for this one.
+    //
+    // Repository only. A "Live demo" link would point at the page they are
+    // already standing on.
+    links: [{ label: 'Repository', href: 'https://github.com/danilopace1-cyber/portfolio' }],
   },
 ]

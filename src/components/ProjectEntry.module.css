@@ -190,6 +190,13 @@
     padding-block: var(--sp-7);
   }
 
+  /* An entry with no media well keeps its text in one column rather than
+     leaving a 17rem hole where the image would have been. The summary is
+     capped at 62ch, so the measure does not sprawl. */
+  .entryNoMedia {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
   .field {
     grid-template-columns: 6rem minmax(0, 1fr);
     gap: var(--sp-4);

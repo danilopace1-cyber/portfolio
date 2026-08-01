@@ -42,7 +42,10 @@ export const certifications = [
     name: 'Meta Front-End Developer Professional Certificate',
     issuer: 'Meta',
     status: 'In progress',
-    date: 'Expected 2026',
+    // No date on purpose. The "In progress" chip already says this is ongoing,
+    // and a published target date is a deadline a recruiter can catch you out
+    // on if it slips. Add one back only when it is certain.
+    date: '',
   },
   {
     name: 'Google AI Essentials',

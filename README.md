@@ -11,13 +11,14 @@ library, no UI dependencies. The site is meant to be a work sample as much as a 
 
 ## Where we left off
 
-_Last updated 31 July 2026._
+_Last updated 1 August 2026._
 
-**The site is built, deployed and live.** Design, build, accessibility pass and deployment are all
-finished. Both university projects now carry real content. The personal projects do not yet.
+**The site is built, deployed and live, and all four project entries now carry real content.**
+Design, build, accessibility pass and deployment were finished earlier. Both project pages are now
+populated. There is no placeholder copy left anywhere on the site.
 
-**We stopped deliberately part way through populating content.** Uni Projects is finished. Personal
-Projects is the next job and nothing has been started on it.
+**What is left is assets and housekeeping, not content.** PTgo still wants a screenshot once it has
+a settled screen, and OtherWordly wants a reshoot and a rehost.
 
 ### Done
 
@@ -41,30 +42,34 @@ Projects is the next job and nothing has been started on it.
     places: the Uni Projects intro, its meta description, and the Home index blurb. Neither real
     project is written in C++. C++ remains in the skills list and About prose, where it is a true
     claim about the degree rather than about these two projects.
+- **Personal Projects is finished.** Two real entries, no placeholder copy:
+  - `PER-01 PTgo` — React Native, Expo, TypeScript, Supabase, Postgres. In development. A workout
+    tracker built around the trainer and client relationship. Written from the source and the
+    migrations in `C:\Claude\Apps\PTgo`, not from that repo's README, which still claims "MVP step
+    1" and is well behind the code. Repository link is live at `danilopace1-cyber/PTgo`, public.
+    Still has no screenshot, so it keeps the placeholder well.
+  - `PER-02 This Site` — the portfolio itself, listed as a project. It is the only browser React on
+    the site now that PTgo is React Native, the repo is public so a recruiter can read the source of
+    the page they are on, and PRODUCT.md already treats the site as its own second proof.
+  - The seeded "Workout Tracker" and "Meta Front-End Course Project" entries were both replaced. The
+    Meta one was deleted outright rather than rewritten: the course is on hold, the work done on it
+    so far is basic HTML, and its old summary claimed form validation and screen reader work that
+    does not exist. It stays a certification on About, which is what it actually is.
+  - The Personal Projects intro and the Home index blurb both said "mostly React". They now say
+    "React and React Native", because PTgo is a mobile app.
+- **`ProjectEntry` now supports an entry with no media well.** Omit `image` entirely and the media
+  column is dropped and the text runs full width. This is for an entry that will never have a
+  screenshot, which is `This Site`. An entry still waiting on a screenshot should keep
+  `image: PLACEHOLDER_IMAGE`, because the empty well is the honest signal that one is coming.
+- The Meta certificate lost its "Expected 2026" date on About. The "In progress" chip already says
+  it is ongoing, and a published target date is a deadline that can be caught out when it slips.
 
 ### Outstanding, in priority order
 
-**1. Personal project content. This is the one that matters.** Everything else is optional polish.
-
-Edit `src/data/projects.js`. Two entries under `personalProjects`, both still carrying a made-up
-title and summary marked `// PLACEHOLDER — replace with real content`. `uniProjects` is done and
-needs no further work. For each remaining project you need:
-
-- `title` — the real project name
-- `year`, `role` — as they actually were
-- `summary` — two or three sentences. What it was, what you specifically built, one concrete
-  technical detail. Plain and direct, no buzzwords. No em dashes and no semicolons anywhere.
-- `tech` — the real stack
-- `image` — a screenshot in `public/images/projects/`, about 1200px wide, 16:10
-- `imageAlt` — describe what is actually in the screenshot
-- `links` — see the warning below
-
-**Do not change the `PLACEHOLDER_URL` constant at the top of the file.** Replace the individual
-`href: PLACEHOLDER_URL` values one at a time as each project gets a real repository. Change the
-constant and every link on the site goes live at once, all pointing at the same address. While a
-link still holds the sentinel it renders as greyed "To come" text instead of a clickable link, which
-is deliberate: a recruiter who clicks "Repository" and lands on a 404 trusts the whole site less
-than one who sees an honest gap.
+**1. A PTgo screenshot.** The only content gap left. It has no settled UI worth photographing yet,
+so `image` stays `PLACEHOLDER_IMAGE` and the entry renders a neutral grey well. Once a screen is
+worth showing, follow the sizing recipe below, drop the file into `public/images/projects/`, point
+`image` at it and write a real `imageAlt`. Nothing else needs touching.
 
 **2. Reshoot the OtherWordly screenshot.** The only weak asset on the site. The source image was
 579x277, so after cropping to 8:5 it is 443x277, against 1200x750 for BorderBreak. At the desktop
@@ -144,7 +149,7 @@ public/
   favicon.svg
   404.html                     GitHub Pages deep-link fix, see "Routing" below
   images/projects/
-    placeholder.svg            neutral placeholder, still used by both personal projects
+    placeholder.svg            neutral placeholder, still used by PTgo
     borderbreak.jpg            UNI-01, 1200x750
     otherwordly.jpg            UNI-02, 443x277, wants reshooting
 src/
@@ -176,8 +181,9 @@ files, so you can rewrite all the content without touching a single component.
 
 ## Replacing the placeholder content
 
-Search the project for `PLACEHOLDER` to find every spot that needs real content. There are four
-things to do.
+All four project entries are real now, so this section is reference for editing them later rather
+than a to-do list. Searching the project for `PLACEHOLDER` still finds the two remaining gaps: the
+PTgo screenshot and the OtherWordly repository link.
 
 ### 1. Projects
 
@@ -283,11 +289,15 @@ something else, change `cvPath` at the bottom of `src/data/profile.js` to match.
 Done already: `src/data/profile.js` (the GitHub contact row, now a live link) and `index.html`
 (`og:url` and `canonical`, both pointing at the live URL).
 
-Still to do in `src/data/projects.js`: three links still point at `PLACEHOLDER_URL` and render as
-greyed "To come" text. One is OtherWordly's repository, which needs rehosting off the old university
-remote first. The other two belong to the personal projects, which have no real content yet. Replace
-the individual `href: PLACEHOLDER_URL` values as each project gets a real repository. Do not change
-the `PLACEHOLDER_URL` constant itself, or every link goes live at once pointing at the same address.
+Still to do in `src/data/projects.js`: exactly one link points at `PLACEHOLDER_URL` and renders as
+greyed "To come" text, OtherWordly's repository, which needs rehosting off the old university remote
+first. PTgo and This Site both link to live public repositories. Replace the individual
+`href: PLACEHOLDER_URL` value once the repo exists. Do not change the `PLACEHOLDER_URL` constant
+itself, or every link goes live at once pointing at the same address.
+
+**Both linked repositories were verified public before the links went in**, with the `curl` check
+above. `danilopace1-cyber/PTgo` and `danilopace1-cyber/portfolio` both return `200`. If you ever
+make one private again, put its `href` back to `PLACEHOLDER_URL` in the same commit.
 
 Everything else on the About page, the skills list and the certifications is already real content.
 

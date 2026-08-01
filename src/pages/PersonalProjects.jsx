@@ -6,8 +6,8 @@ export default function PersonalProjects() {
     <ProjectListPage
       title="Personal Projects"
       documentTitle="Personal Projects"
-      description="Personal software projects by Danilo Pace, built in React outside of university work."
-      intro="What I build in my own time. These are mostly React, and they are how I am moving my day to day work towards the web."
+      description="Personal software projects by Danilo Pace, built in React and React Native outside of university work."
+      intro="What I build in my own time. These are React and React Native, and they are how I am moving my day to day work towards building software."
       projects={personalProjects}
     />
   )

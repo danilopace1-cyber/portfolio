@@ -11,24 +11,34 @@ export default function ProjectEntry({ project, index }) {
   const { ref, title, role, year, status, summary, tech, image, imageAlt, links } = project
   const isLive = status === 'In development'
   const isPlaceholderImage = image === PLACEHOLDER_IMAGE
+  /* Omitting `image` entirely drops the media column and lets the text run the
+     full width. That is for an entry that will never have a screenshot, not for
+     one still waiting on one: a pending screenshot should keep the placeholder
+     well, because the empty field is the honest signal. */
+  const hasMedia = Boolean(image)
   const titleId = `project-${ref}`
 
   return (
-    <article className={styles.entry} aria-labelledby={titleId}>
-      <div className={styles.media}>
-        <img
-          src={asset(image)}
-          /* The placeholder graphic already reads PROJECT IMAGE on screen and
-             carries no information, so it is decorative. Announcing the
-             maintainer's "replace this" note to a screen reader would leak
-             build scaffolding into the shipped site. */
-          alt={isPlaceholderImage ? '' : imageAlt}
-          width="800"
-          height="500"
-          loading={index === 0 ? 'eager' : 'lazy'}
-          decoding="async"
-        />
-      </div>
+    <article
+      className={`${styles.entry} ${hasMedia ? '' : styles.entryNoMedia}`}
+      aria-labelledby={titleId}
+    >
+      {hasMedia ? (
+        <div className={styles.media}>
+          <img
+            src={asset(image)}
+            /* The placeholder graphic already reads PROJECT IMAGE on screen and
+               carries no information, so it is decorative. Announcing the
+               maintainer's "replace this" note to a screen reader would leak
+               build scaffolding into the shipped site. */
+            alt={isPlaceholderImage ? '' : imageAlt}
+            width="800"
+            height="500"
+            loading={index === 0 ? 'eager' : 'lazy'}
+            decoding="async"
+          />
+        </div>
+      ) : null}
 
       <div className={styles.body}>
         <p className={styles.metaRow}>
