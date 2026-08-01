@@ -93,12 +93,7 @@ working link on its own.
 `index.html` and change `twitter:card` to `summary_large_image`. Right now a shared link shows text
 only, which is fine but plain.
 
-**5. Git identity mismatch.** Commits are authored as `danilopace99@gmail.com` while the GitHub
-account is `danilopace1-cyber`. Unless that address is registered on the account, this work does not
-show on the contribution graph or link to the profile. Add it under github.com → Settings → Emails,
-or change it in GitHub Desktop under File → Options → Git.
-
-**6. Local Node is v21.2.0**, an odd-numbered release that went end of life in June 2024. It builds
+**5. Local Node is v21.2.0**, an odd-numbered release that went end of life in June 2024. It builds
 this project fine, so there is no rush, but odd-numbered Node releases never get long-term support.
 Node 22 or 24 when convenient.
 
@@ -113,6 +108,12 @@ Node 22 or 24 when convenient.
   deliberately over a Risograph print treatment and an anime title-card treatment. The full design
   system is recorded in `DESIGN.md`, and the product context in `PRODUCT.md`. Read those before
   changing anything visual.
+- **The commit author address is fine, so it does not need changing.** Commits are authored as
+  `danilopace99@gmail.com` rather than the account name `danilopace1-cyber`, which looks like a
+  mismatch and was listed as an outstanding job for a while. It is not one. That address is a
+  registered email on the GitHub account, so GitHub resolves every commit to the profile and the
+  work counts on the contribution graph. Verified against the commits API on 1 August 2026, which
+  reports `author.login: danilopace1-cyber` for all three commits of that day.
 
 ### To pick this back up
 
