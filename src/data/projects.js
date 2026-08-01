@@ -56,21 +56,21 @@ export const uniProjects = [
   },
   {
     ref: 'UNI-02',
-    title: 'OtherWordly',
+    title: 'OtherWorldly',
     role: 'Solo project',
     year: '2022',
     status: 'Completed',
     summary:
-      'A first person RPG built in Unity for a coursework module at Kingston. I wrote the quest, inventory, equipment, dialogue and enemy AI systems myself, and kept each script generic so one chest prefab could be placed all over the map and configured to drop different items. Enemies are triggered by game events rather than spawned on a timer, so the first skeletons only appear once the player has opened the opening chest.',
-    tech: ['Unity', 'C#'],
-    image: 'images/projects/otherwordly.jpg',
+      'A first person RPG built in Unity for a coursework module at Kingston, and later built to run on PlayStation 5. I wrote the quest, inventory, equipment, dialogue and enemy AI systems myself, and kept each script generic so one chest prefab could be placed all over the map and configured to drop different items. Enemies are triggered by game events rather than spawned on a timer, so the first skeletons only appear once the player has opened the opening chest.',
+    tech: ['Unity', 'C#', 'PlayStation 5'],
+    image: 'images/projects/otherworldly.jpg',
     imageAlt:
       'A first person view across a grass field towards a stone castle, holding a sword, with two skeleton enemies ahead and a health bar and item hotbar along the bottom of the screen.',
-    links: [
-      // Repository pending. The project is still tied to the old university Git
-      // remote, so this renders as an honest "To come" until it is rehosted.
-      { label: 'Repository', href: PLACEHOLDER_URL },
-    ],
+    // Showcase repository, not the full Unity project. The working project
+    // carries licensed asset pack content and console build output, neither of
+    // which can be republished, so the repo holds the gameplay code, which is
+    // the part worth reading anyway.
+    links: [{ label: 'Repository', href: 'https://github.com/danilopace1-cyber/OtherWorldly-Showcase' }],
   },
 ]
 

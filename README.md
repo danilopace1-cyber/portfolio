@@ -17,8 +17,8 @@ _Last updated 1 August 2026._
 Design, build, accessibility pass and deployment were finished earlier. Both project pages are now
 populated. There is no placeholder copy left anywhere on the site.
 
-**What is left is assets and housekeeping, not content.** PTgo still wants a screenshot once it has
-a settled screen, and OtherWordly wants a reshoot and a rehost.
+**Every project link on the site is now live.** What is left is screenshots and housekeeping. PTgo
+wants one once it has a settled screen, and OtherWorldly wants a reshoot.
 
 ### Done
 
@@ -33,9 +33,14 @@ a settled screen, and OtherWordly wants a reshoot and a rehost.
 - **Uni Projects is finished.** Two real entries, both with real screenshots:
   - `UNI-01 BorderBreak` — Unreal Engine 5, Blueprints, 2023. Final year project. Repository link is
     live at `danilopace1-cyber/BorderBreak-Showcase`, which is public.
-  - `UNI-02 OtherWordly` — Unity, C#, 2022. Coursework module CI5515. Repository link is still a
-    greyed "To come", because the project is tied to the old university Git remote and has not been
-    rehosted yet.
+  - `UNI-02 OtherWorldly` — Unity, C#, 2022. Coursework module CI5515. Repository link is live at
+    `danilopace1-cyber/OtherWorldly-Showcase`, which is public. That is a showcase repo holding the
+    gameplay source only, not the playable project. The original was on the Kingston GitLab, which
+    is no longer accessible, and it could not be republished as-is regardless: it carries licensed
+    asset pack content and PlayStation 5 build output, and two files in its history exceed GitHub's
+    100MB limit. The title was also misspelled "OtherWordly" everywhere on this site, including the
+    screenshot filename, and is now corrected. The entry now names PS5 as a target, which is a real
+    differentiator for a games or engineering role and was previously missing.
   - The two leftover seeded uni entries were deleted. They were garbled guesses at these same two
     projects, so the page now shows two entries rather than three.
   - Page copy that described the uni work as "C++" was corrected to "C# and Blueprints" in three
@@ -78,22 +83,18 @@ so `image` stays `PLACEHOLDER_IMAGE` and the entry renders a neutral grey well. 
 worth showing, follow the sizing recipe below, drop the file into `public/images/projects/`, point
 `image` at it and write a real `imageAlt`. Nothing else needs touching.
 
-**2. Reshoot the OtherWordly screenshot.** The only weak asset on the site. The source image was
+**2. Reshoot the OtherWorldly screenshot.** The only weak asset on the site. The source image was
 579x277, so after cropping to 8:5 it is 443x277, against 1200x750 for BorderBreak. At the desktop
 listing width of 272px it is fine, but the entry stacks on a phone and the image goes close to full
 width, where it looks visibly soft next to the other entry. The crop also cost 136px of width and
 clipped the left edge of the health bar. A fresh 1920x1080 grab from the Unity editor fixes both.
 
-**3. Rehost OtherWordly and turn its link on.** It is still on the old university Git remote. Once
-it lives somewhere public, replace its `href: PLACEHOLDER_URL` and the greyed "To come" becomes a
-working link on its own.
-
-**4. Link preview image.** Optional, but worth doing before the link goes on applications. Save a
+**3. Link preview image.** Optional, but worth doing before the link goes on applications. Save a
 1200x630 PNG as `public/og-image.png`, then uncomment the two commented-out lines in the head of
 `index.html` and change `twitter:card` to `summary_large_image`. Right now a shared link shows text
 only, which is fine but plain.
 
-**5. Local Node is v21.2.0**, an odd-numbered release that went end of life in June 2024. It builds
+**4. Local Node is v21.2.0**, an odd-numbered release that went end of life in June 2024. It builds
 this project fine, so there is no rush, but odd-numbered Node releases never get long-term support.
 Node 22 or 24 when convenient.
 
@@ -159,7 +160,7 @@ public/
   images/projects/
     placeholder.svg            neutral placeholder, still used by PTgo
     borderbreak.jpg            UNI-01, 1200x750
-    otherwordly.jpg            UNI-02, 443x277, wants reshooting
+    otherworldly.jpg            UNI-02, 443x277, wants reshooting
 src/
   data/
     profile.js                 name, headline, intro, About text, skills, certs, contact links
@@ -190,9 +191,9 @@ files, so you can rewrite all the content without touching a single component.
 
 ## Replacing the placeholder content
 
-All four project entries are real now, so this section is reference for editing them later rather
-than a to-do list. Searching the project for `PLACEHOLDER` still finds the two remaining gaps: the
-PTgo screenshot and the OtherWordly repository link.
+All four project entries are real now, and every repository link is live, so this section is
+reference for editing them later rather than a to-do list. Searching the project for `PLACEHOLDER`
+finds one remaining gap, the PTgo screenshot.
 
 ### 1. Projects
 
@@ -202,13 +203,13 @@ looks like this:
 ```js
 {
   ref: 'UNI-02',                    // shown as the reference code, must be unique
-  title: 'OtherWordly',
+  title: 'OtherWorldly',
   role: 'Solo project',             // optional, omit the line if not useful
   year: '2022',
   status: 'Completed',              // 'In development' gets the green chip instead
   summary: 'Two or three sentences.',
   tech: ['Unity', 'C#'],            // shown as the STACK row
-  image: 'images/projects/otherwordly.jpg',
+  image: 'images/projects/otherworldly.jpg',
   imageAlt: 'Describe what the image shows.',
   links: [                          // optional, delete the ones you do not have
     { label: 'Repository', href: 'https://github.com/...' },
@@ -298,15 +299,14 @@ something else, change `cvPath` at the bottom of `src/data/profile.js` to match.
 Done already: `src/data/profile.js` (the GitHub contact row, now a live link) and `index.html`
 (`og:url` and `canonical`, both pointing at the live URL).
 
-Still to do in `src/data/projects.js`: exactly one link points at `PLACEHOLDER_URL` and renders as
-greyed "To come" text, OtherWordly's repository, which needs rehosting off the old university remote
-first. PTgo and This Site both link to live public repositories. Replace the individual
-`href: PLACEHOLDER_URL` value once the repo exists. Do not change the `PLACEHOLDER_URL` constant
-itself, or every link goes live at once pointing at the same address.
+Nothing left to do in `src/data/projects.js`. **No link on the site points at `PLACEHOLDER_URL` any
+more**, so the "To come" state is not currently visible anywhere. Keep the constant and the
+sentinel behaviour in place regardless, because the next project added will need it.
 
-**Both linked repositories were verified public before the links went in**, with the `curl` check
-above. `danilopace1-cyber/PTgo` and `danilopace1-cyber/portfolio` both return `200`. If you ever
-make one private again, put its `href` back to `PLACEHOLDER_URL` in the same commit.
+**Every linked repository was verified public before its link went in**, with the `curl` check
+above. `danilopace1-cyber/BorderBreak-Showcase`, `OtherWorldly-Showcase`, `PTgo` and `portfolio`
+all return `200`. If you ever make one private again, put its `href` back to `PLACEHOLDER_URL` in
+the same commit, or the site sends a recruiter to a 404.
 
 Everything else on the About page, the skills list and the certifications is already real content.
 
