@@ -30,6 +30,24 @@ The stack row underneath already names JavaScript and the Web Speech API, so the
 need to. His copy is also the source for two facts the repo does not state: it is built for
 tablets, not phones, and it is being tested in real filming sessions with a native app planned.
 
+**Tally's well shows the logo rather than a screenshot, on purpose.** A real capture was taken from
+the live app on 3 November 2026 and is still in the repo at `public/images/projects/tally.jpg`, but
+the app's status bar currently carries an older working name for the project, which would have
+disagreed with the `Tally` heading right next to it. The entry runs
+`public/images/projects/tally-logo.svg` until the name is settled. Point `image` back at
+`tally.jpg` to restore the screenshot. Do not delete that file.
+
+The logo is a vector trace of the symbol from the brand files in
+`Documents/Codex/2026-11-03/thi/outputs/telly-logo`. It was rebuilt into an 8:5 viewBox with the
+mark centred, because `.media img` applies `object-fit: cover` and the source's own 480x373 box
+would have been cropped top and bottom. The background is left transparent so the well's sunk paper
+colour shows through.
+
+**If you edit that SVG, do not write CSS custom property names in its comment.** A double hyphen is
+illegal inside an XML comment, so a reference like the sunk paper variable makes the whole file fail
+to parse. It still serves as a 200 with the right content type, the browser just reports
+`naturalWidth: 0` and the entry silently falls back to alt text. That cost a build cycle to find.
+
 **Every project link on the site is now live.** What is left is screenshots and housekeeping. PTgo
 still wants one, and OtherWorldly wants a reshoot.
 
@@ -88,8 +106,7 @@ Kingston's GitLab, which is no longer accessible, and that is not the blocker. T
     above. The stack and the build facts were read from the public repo, not from a local checkout,
     because it is developed on another machine. Carries both a `Live demo`
     and a `Repository` link, and it is the only personal entry with a live demo, which is why it
-    leads the list. Screenshot captured from the live app on 3 November 2026, mid-scroll so the red
-    cue line and the dimmed already-read text are both visible.
+    leads the list. The media well shows the logo, not a screenshot, see the note below.
   - `PER-02 PTgo` — React Native, Expo, TypeScript, Supabase, Postgres. On hold as of 3 November
     2026. A workout tracker built around the trainer and client relationship. Written from the
     source and the migrations in `C:\Claude\Apps\PTgo`, not from that repo's README, which still
@@ -123,19 +140,25 @@ Kingston's GitLab, which is no longer accessible, and that is not the blocker. T
 
 ### Outstanding, in priority order
 
-**1. A PTgo screenshot.** It has no settled UI worth photographing yet, so `image` stays
+**1. Put the Tally screenshot back once the name is settled.** The capture is already in the repo
+and already sized, so this is a one-line change in `src/data/projects.js` plus a real `imageAlt`
+describing the screenshot again. A logo tells a recruiter nothing about the product, so this should
+not sit as the permanent state. The blocker is only that the app's status bar and the entry heading
+currently disagree on the name.
+
+**2. A PTgo screenshot.** It has no settled UI worth photographing yet, so `image` stays
 `PLACEHOLDER_IMAGE` and the entry renders a neutral grey well. Lower priority now that the project
 is on hold. Once a screen is worth showing, follow the sizing recipe below, drop the file into
 `public/images/projects/`, point `image` at it and write a real `imageAlt`. Nothing else needs
 touching.
 
-**2. Reshoot the OtherWorldly screenshot.** The only weak asset on the site. The source image was
+**3. Reshoot the OtherWorldly screenshot.** The only weak asset on the site. The source image was
 579x277, so after cropping to 8:5 it is 443x277, against 1200x750 for BorderBreak. At the desktop
 listing width of 272px it is fine, but the entry stacks on a phone and the image goes close to full
 width, where it looks visibly soft next to the other entry. The crop also cost 136px of width and
 clipped the left edge of the health bar. A fresh 1920x1080 grab from the Unity editor fixes both.
 
-**3. Decide what to do about the student ID in the BorderBreak project report.**
+**4. Decide what to do about the student ID in the BorderBreak project report.**
 `BorderBreak-Showcase/docs/project-report.pdf` is public and its first page carries `Name: Danilo
 Pace`, `ID Number: K2026867`, a signed plagiarism declaration, and the supervisor's name. The
 README of that repo names the supervisor too. Not high risk on its own, but K2026867 is a real
@@ -143,7 +166,7 @@ identifier tied to university records and was also the old GitLab username, and 
 a third party who did not agree to being named on a public repo. Three options: leave it, redact
 page one, or drop the PDF and keep `ARCHITECTURE.md`. **Raised 1 August 2026, not yet decided.**
 
-**4. Confirm the PlayStation 5 wording on UNI-02.** The entry currently reads "built in Unity for a
+**5. Confirm the PlayStation 5 wording on UNI-02.** The entry currently reads "built in Unity for a
 coursework module at Kingston, and later built to run on PlayStation 5". That phrasing was chosen
 because the sources disagree: the coursework report at `D:\Uni Projects\Unity\PDFs\otherworldly.pdf`
 lists `Platform: Computer`, while the original repo is named `PS5-OtherWorldly2` and holds real PS5
@@ -152,12 +175,12 @@ is the stronger claim. Danilo has confirmed he is comfortable naming PS5 publicl
 that no Sony code or SDK material is published, only his own C#. That decision is settled, do not
 re-raise it.
 
-**5. Link preview image.** Optional, but worth doing before the link goes on applications. Save a
+**6. Link preview image.** Optional, but worth doing before the link goes on applications. Save a
 1200x630 PNG as `public/og-image.png`, then uncomment the two commented-out lines in the head of
 `index.html` and change `twitter:card` to `summary_large_image`. Right now a shared link shows text
 only, which is fine but plain.
 
-**6. Local Node is v21.2.0**, an odd-numbered release that went end of life in June 2024. It builds
+**7. Local Node is v21.2.0**, an odd-numbered release that went end of life in June 2024. It builds
 this project fine, so there is no rush, but odd-numbered Node releases never get long-term support.
 Node 22 or 24 when convenient.
 

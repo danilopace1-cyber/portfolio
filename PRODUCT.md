@@ -96,7 +96,9 @@ Real and usable:
   AI systems and player interaction optimisation.
 - True shape of the personal work: Tally, a voice following teleprompter built for tablets, one
   dependency free HTML file using the Web Speech API, live at `danilopace1-cyber.github.io/Tally/`,
-  in testing during real filming sessions with a native app planned. Then PTgo, a workout tracker built around the trainer and
+  in testing during real filming sessions with a native app planned. Its entry shows the logo
+  rather than a screenshot, because the app's own name is still being settled and the capture
+  disagrees with the heading. That is temporary, see README.md. Then PTgo, a workout tracker built around the trainer and
   client relationship, in React Native with a Supabase Postgres backend, public at
   `danilopace1-cyber/PTgo` and on hold since November 2026. Plus this site itself, which is listed
   as a project on its own merits.

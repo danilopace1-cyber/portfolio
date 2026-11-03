@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" width="1200" height="750">
+  <!--
+    Tally's symbol, from the brand files at
+    Documents/Codex/2026-11-03/thi/outputs/telly-logo (telly-symbol-dark.svg).
+
+    Two changes from the source. The viewBox is 8:5 with the symbol centred,
+    because .media img applies object-fit cover and the source's own 480x373
+    box would have been cropped top and bottom. And the background is left
+    transparent so the well's sunk paper colour shows through, which keeps the
+    mark correct if the paper colours ever move.
+
+    Note for anyone editing this comment: CSS custom property names cannot be
+    written in here. A double hyphen is illegal inside an XML comment, so
+    naming the variables directly makes the whole file fail to parse, and the
+    entry silently falls back to alt text.
+
+    Paths are the source file's, untouched. Fill is the brand dark #07100C,
+    not the site's ink colour, because this is the logo rather than page
+    furniture.
+  -->
+  <g transform="translate(324 160.5) scale(1.15)" fill="#07100C">
+    <path d="M32 48H384V108H238V304H178V108H32Z"/>
+    <path d="M276 136H384V170H276ZM276 203H367V237H276ZM276 270H367V304H276Z"/>
+    <path d="M384 237L448 281L384 325Z"/>
+  </g>
+</svg>

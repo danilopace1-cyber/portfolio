@@ -89,11 +89,17 @@ export const personalProjects = [
     summary:
       'Tally scrolls your script as you speak, so you never lose your place or have to rush to keep up. You can use a set speed, voice-follow, or both together for the smoothest read. It’s built for tablets and kept deliberately simple, and your scripts stay on your device. It’s being tested in real filming sessions, with a native app on the way.',
     tech: ['JavaScript', 'Web Speech API', 'HTML', 'CSS', 'GitHub Pages'],
-    // Captured from the live app mid-scroll, so the red cue line and the dimmed
-    // already-read text are both visible, which is what the summary describes.
-    image: 'images/projects/tally.jpg',
+    // The logo, not a screenshot, and deliberately so for now. The real capture
+    // is still in the repo at images/projects/tally.jpg and shows the app's
+    // status bar, which currently carries an older working name for the
+    // project. Rather than ship a screenshot that disagrees with the heading
+    // above it, the entry runs the symbol until the name is settled. Point
+    // `image` back at tally.jpg to restore the screenshot.
+    image: 'images/projects/tally-logo.svg',
+    // Describes the mark, because that is what is actually on screen. The old
+    // alt described the screenshot and would have been a lie about this file.
     imageAlt:
-      'A dark teleprompter screen scrolling a script, with a red cue line across the text, the lines above it dimmed as already read, the current word underlined in red, and a words per minute slider in the left control rail.',
+      'The Tally logo. A bold letter T whose upright doubles as the left edge of three stacked bars suggesting lines of script, with a play triangle at the end of the bottom bar.',
     links: [
       { label: 'Live demo', href: 'https://danilopace1-cyber.github.io/Tally/' },
       { label: 'Repository', href: 'https://github.com/danilopace1-cyber/Tally' },
