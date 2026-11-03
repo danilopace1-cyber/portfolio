@@ -82,8 +82,12 @@ export const personalProjects = [
     role: 'Solo project',
     year: '2026',
     status: 'In development',
+    // Danilo's own copy, used as written. It leads on what the thing does for
+    // the person reading off it rather than on how it is built, which is the
+    // right call for this entry: the stack row below already says JavaScript
+    // and Web Speech API, so the summary does not need to.
     summary:
-      'A teleprompter for a phone, built as one HTML file with no framework and no build step, and served from GitHub Pages. It scrolls at a words per minute you set, and the voice mode listens through the Web Speech API, matches the last few words it heard against the script and snaps the cue to where you actually are. The scroll and the voice tracking are deliberately separate, so speech only leans the speed toward how fast you are talking and the text carries on at your set pace if the microphone drops out.',
+      'Tally scrolls your script as you speak, so you never lose your place or have to rush to keep up. You can use a set speed, voice-follow, or both together for the smoothest read. It’s built for tablets and kept deliberately simple, and your scripts stay on your device. It’s being tested in real filming sessions, with a native app on the way.',
     tech: ['JavaScript', 'Web Speech API', 'HTML', 'CSS', 'GitHub Pages'],
     // Captured from the live app mid-scroll, so the red cue line and the dimmed
     // already-read text are both visible, which is what the summary describes.

@@ -18,10 +18,17 @@ Design, build, accessibility pass and deployment were finished earlier. Both pro
 populated. There is no placeholder copy left anywhere on the site.
 
 **Tally was added and PTgo moved to on hold on 3 November 2026.** Tally is a voice following
-teleprompter, one HTML file served from GitHub Pages, and it leads Personal Projects because it is
-the only personal project with a working live demo. It is developed on another machine, so this
-checkout has no copy of it and its content was written from the public repo. PTgo keeps its entry
-and its repo link and now shows a plain `On hold` chip rather than the accent one.
+teleprompter built for tablets, one HTML file served from GitHub Pages, and it leads Personal
+Projects because it is the only personal project with a working live demo. It is developed on
+another machine, so this checkout has no copy of it. PTgo keeps its entry and its repo link and now
+shows a plain `On hold` chip rather than the accent one.
+
+**Tally's summary is Danilo's own copy and should not be rewritten without asking.** A first draft
+written from the repo led on the build (one HTML file, no framework, how the voice matching works)
+and was replaced with his version, which leads on what the tool does for the person reading off it.
+The stack row underneath already names JavaScript and the Web Speech API, so the summary does not
+need to. His copy is also the source for two facts the repo does not state: it is built for
+tablets, not phones, and it is being tested in real filming sessions with a native app planned.
 
 **Every project link on the site is now live.** What is left is screenshots and housekeeping. PTgo
 still wants one, and OtherWorldly wants a reshoot.
@@ -75,10 +82,11 @@ Kingston's GitLab, which is no longer accessible, and that is not the blocker. T
     project is written in C++. C++ remains in the skills list and About prose, where it is a true
     claim about the degree rather than about these two projects.
 - **Personal Projects is finished.** Three real entries, no placeholder copy:
-  - `PER-01 Tally` — JavaScript, Web Speech API, HTML, CSS, GitHub Pages. In development. A phone
-    teleprompter that follows your voice, shipped as a single 32KB `index.html` with no framework,
-    no build step and no dependencies. Written from the public repo's `index.html` and README, not
-    from a local checkout, because it is developed on another machine. Carries both a `Live demo`
+  - `PER-01 Tally` — JavaScript, Web Speech API, HTML, CSS, GitHub Pages. In development. A
+    teleprompter for tablets that follows your voice, shipped as a single 32KB `index.html` with no
+    framework, no build step and no dependencies. The summary is Danilo's own copy, see the note
+    above. The stack and the build facts were read from the public repo, not from a local checkout,
+    because it is developed on another machine. Carries both a `Live demo`
     and a `Repository` link, and it is the only personal entry with a live demo, which is why it
     leads the list. Screenshot captured from the live app on 3 November 2026, mid-scroll so the red
     cue line and the dimmed already-read text are both visible.
