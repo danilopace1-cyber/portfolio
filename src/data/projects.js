@@ -13,8 +13,9 @@
  *   title    The project name.
  *   role     Optional. Your role, shown next to the year. Leave out if not useful.
  *   year     Shown in the meta column. A string, so '2023' or '2024 – 2025' both work.
- *   status   'Completed' or 'In development'. Anything set to 'In development'
- *            gets the accent chip, everything else gets a plain outline chip.
+ *   status   'Completed', 'In development' or 'On hold'. Anything set to
+ *            'In development' gets the accent chip, everything else gets a
+ *            plain outline chip, which is what a paused project should read as.
  *   summary  Two or three sentences. Plain and direct. No em dashes, no semicolons.
  *   tech     Array of tech tags, shown as a ruled STACK row.
  *   image    Path relative to /public. Swap the placeholder for a real screenshot.
@@ -77,10 +78,29 @@ export const uniProjects = [
 export const personalProjects = [
   {
     ref: 'PER-01',
-    title: 'PTgo',
+    title: 'Tally',
     role: 'Solo project',
     year: '2026',
     status: 'In development',
+    summary:
+      'A teleprompter for a phone, built as one HTML file with no framework and no build step, and served from GitHub Pages. It scrolls at a words per minute you set, and the voice mode listens through the Web Speech API, matches the last few words it heard against the script and snaps the cue to where you actually are. The scroll and the voice tracking are deliberately separate, so speech only leans the speed toward how fast you are talking and the text carries on at your set pace if the microphone drops out.',
+    tech: ['JavaScript', 'Web Speech API', 'HTML', 'CSS', 'GitHub Pages'],
+    // Captured from the live app mid-scroll, so the red cue line and the dimmed
+    // already-read text are both visible, which is what the summary describes.
+    image: 'images/projects/tally.jpg',
+    imageAlt:
+      'A dark teleprompter screen scrolling a script, with a red cue line across the text, the lines above it dimmed as already read, the current word underlined in red, and a words per minute slider in the left control rail.',
+    links: [
+      { label: 'Live demo', href: 'https://danilopace1-cyber.github.io/Tally/' },
+      { label: 'Repository', href: 'https://github.com/danilopace1-cyber/Tally' },
+    ],
+  },
+  {
+    ref: 'PER-02',
+    title: 'PTgo',
+    role: 'Solo project',
+    year: '2026',
+    status: 'On hold',
     summary:
       'A workout tracker built around the personal trainer and client relationship, written in React Native with a Postgres backend where the trainer and client permissions are enforced by row level security. Trainers keep a library of reusable workouts and assign them to a client as a weekly schedule, and the client logs their sets against it. Assigning copies the workout instead of linking to it, so editing one in the library never changes a plan a client is already following.',
     tech: ['React Native', 'Expo', 'TypeScript', 'Supabase', 'PostgreSQL'],
@@ -93,7 +113,7 @@ export const personalProjects = [
     links: [{ label: 'Repository', href: 'https://github.com/danilopace1-cyber/PTgo' }],
   },
   {
-    ref: 'PER-02',
+    ref: 'PER-03',
     title: 'This Site',
     role: 'Solo project',
     year: '2026',

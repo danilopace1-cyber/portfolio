@@ -11,24 +11,31 @@ library, no UI dependencies. The site is meant to be a work sample as much as a 
 
 ## Where we left off
 
-_Last updated 1 August 2026._
+_Last updated 3 November 2026._
 
-**The site is built, deployed and live, and all four project entries now carry real content.**
+**The site is built, deployed and live, and all five project entries now carry real content.**
 Design, build, accessibility pass and deployment were finished earlier. Both project pages are now
 populated. There is no placeholder copy left anywhere on the site.
 
+**Tally was added and PTgo moved to on hold on 3 November 2026.** Tally is a voice following
+teleprompter, one HTML file served from GitHub Pages, and it leads Personal Projects because it is
+the only personal project with a working live demo. It is developed on another machine, so this
+checkout has no copy of it and its content was written from the public repo. PTgo keeps its entry
+and its repo link and now shows a plain `On hold` chip rather than the accent one.
+
 **Every project link on the site is now live.** What is left is screenshots and housekeeping. PTgo
-wants one once it has a settled screen, and OtherWorldly wants a reshoot.
+still wants one, and OtherWorldly wants a reshoot.
 
 ### Related repositories
 
-The site links out to three repos, and two of them were built specifically so it could. Work on
+The site links out to four repos, and two of them were built specifically so it could. Work on
 those often lands here as a link change, so they are listed together:
 
 | Repo | Holds | State |
 |---|---|---|
 | `danilopace1-cyber/portfolio` | This site | Live, deploys on push to `main` |
-| `danilopace1-cyber/PTgo` | Full React Native app, `C:\Claude\Apps\PTgo` | Public, active |
+| `danilopace1-cyber/Tally` | Teleprompter, single `index.html`. **Developed on another machine, not checked out here** | Public, active. Live at `danilopace1-cyber.github.io/Tally/` |
+| `danilopace1-cyber/PTgo` | Full React Native app, `C:\Claude\Apps\PTgo` | Public, on hold |
 | `danilopace1-cyber/BorderBreak-Showcase` | Docs, screenshots, project report. No source, the project is Blueprints | Public. See outstanding item 3 |
 | `danilopace1-cyber/OtherWorldly-Showcase` | Gameplay C# only, built 1 Aug 2026 from `D:\Uni Projects\OtherWorldly` | Public, wants screenshots |
 
@@ -67,21 +74,31 @@ Kingston's GitLab, which is no longer accessible, and that is not the blocker. T
     places: the Uni Projects intro, its meta description, and the Home index blurb. Neither real
     project is written in C++. C++ remains in the skills list and About prose, where it is a true
     claim about the degree rather than about these two projects.
-- **Personal Projects is finished.** Two real entries, no placeholder copy:
-  - `PER-01 PTgo` — React Native, Expo, TypeScript, Supabase, Postgres. In development. A workout
-    tracker built around the trainer and client relationship. Written from the source and the
-    migrations in `C:\Claude\Apps\PTgo`, not from that repo's README, which still claims "MVP step
-    1" and is well behind the code. Repository link is live at `danilopace1-cyber/PTgo`, public.
-    Still has no screenshot, so it keeps the placeholder well.
-  - `PER-02 This Site` — the portfolio itself, listed as a project. It is the only browser React on
+- **Personal Projects is finished.** Three real entries, no placeholder copy:
+  - `PER-01 Tally` — JavaScript, Web Speech API, HTML, CSS, GitHub Pages. In development. A phone
+    teleprompter that follows your voice, shipped as a single 32KB `index.html` with no framework,
+    no build step and no dependencies. Written from the public repo's `index.html` and README, not
+    from a local checkout, because it is developed on another machine. Carries both a `Live demo`
+    and a `Repository` link, and it is the only personal entry with a live demo, which is why it
+    leads the list. Screenshot captured from the live app on 3 November 2026, mid-scroll so the red
+    cue line and the dimmed already-read text are both visible.
+  - `PER-02 PTgo` — React Native, Expo, TypeScript, Supabase, Postgres. On hold as of 3 November
+    2026. A workout tracker built around the trainer and client relationship. Written from the
+    source and the migrations in `C:\Claude\Apps\PTgo`, not from that repo's README, which still
+    claims "MVP step 1" and is well behind the code. Repository link is live at
+    `danilopace1-cyber/PTgo`, public. Still has no screenshot, so it keeps the placeholder well.
+  - `PER-03 This Site` — the portfolio itself, listed as a project. It is the only browser React on
     the site now that PTgo is React Native, the repo is public so a recruiter can read the source of
     the page they are on, and PRODUCT.md already treats the site as its own second proof.
   - The seeded "Workout Tracker" and "Meta Front-End Course Project" entries were both replaced. The
     Meta one was deleted outright rather than rewritten: the course is on hold, the work done on it
     so far is basic HTML, and its old summary claimed form validation and screen reader work that
     does not exist. It stays a certification on About, which is what it actually is.
-  - The Personal Projects intro and the Home index blurb both said "mostly React". They now say
-    "React and React Native", because PTgo is a mobile app.
+  - The Personal Projects intro and the Home index blurb both said "mostly React", then "React and
+    React Native" once PTgo landed. Adding Tally made that wrong again, because Tally uses no
+    framework at all, so all three places (the page intro, its meta description and the Home index
+    blurb) now say "React, React Native and plain JavaScript". Check this copy whenever a personal
+    entry is added or removed, because it enumerates the stack and goes stale silently.
 - **`ProjectEntry` now supports an entry with no media well.** Omit `image` entirely and the media
   column is dropped and the text runs full width. This is for an entry that will never have a
   screenshot, which is `This Site`. An entry still waiting on a screenshot should keep
@@ -98,10 +115,11 @@ Kingston's GitLab, which is no longer accessible, and that is not the blocker. T
 
 ### Outstanding, in priority order
 
-**1. A PTgo screenshot.** The only content gap left. It has no settled UI worth photographing yet,
-so `image` stays `PLACEHOLDER_IMAGE` and the entry renders a neutral grey well. Once a screen is
-worth showing, follow the sizing recipe below, drop the file into `public/images/projects/`, point
-`image` at it and write a real `imageAlt`. Nothing else needs touching.
+**1. A PTgo screenshot.** It has no settled UI worth photographing yet, so `image` stays
+`PLACEHOLDER_IMAGE` and the entry renders a neutral grey well. Lower priority now that the project
+is on hold. Once a screen is worth showing, follow the sizing recipe below, drop the file into
+`public/images/projects/`, point `image` at it and write a real `imageAlt`. Nothing else needs
+touching.
 
 **2. Reshoot the OtherWorldly screenshot.** The only weak asset on the site. The source image was
 579x277, so after cropping to 8:5 it is 443x277, against 1200x750 for BorderBreak. At the desktop
@@ -171,9 +189,10 @@ npm install     # only if node_modules is missing
 npm run dev     # http://localhost:5173/portfolio/
 ```
 
-The highest-value next job is **screenshots**, because one OtherWorldly capture fixes two things at
-once: the soft image on this site and the empty `docs/` in the showcase repo. That needs Danilo at
-the Unity editor. The PowerShell crop and compress recipe is further down under "Project images".
+The highest-value next job is still **screenshots**, now that Tally has one. One OtherWorldly
+capture fixes two things at once: the soft image on this site and the empty `docs/` in the showcase
+repo. That needs Danilo at the Unity editor. The PowerShell crop and compress recipe is further down
+under "Project images".
 
 Edit the `personalProjects` array in `src/data/projects.js`, check it at both a narrow and a wide
 window, then commit and push. The site redeploys itself.
@@ -258,7 +277,8 @@ looks like this:
   title: 'OtherWorldly',
   role: 'Solo project',             // optional, omit the line if not useful
   year: '2022',
-  status: 'Completed',              // 'In development' gets the green chip instead
+  status: 'Completed',              // 'In development' gets the green chip. 'On hold' is also
+                                    // used, and gets the same plain chip as 'Completed'
   summary: 'Two or three sentences.',
   tech: ['Unity', 'C#'],            // shown as the STACK row
   image: 'images/projects/otherworldly.jpg',

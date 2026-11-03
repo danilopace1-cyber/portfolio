@@ -94,9 +94,12 @@ Real and usable:
 - True shape of the university work: a Unity team project where he was team leader and owned the
   full development lifecycle with GitHub and GitLab, and an Unreal Engine project in C++ covering
   AI systems and player interaction optimisation.
-- True shape of the personal work: PTgo, a workout tracker built around the trainer and client
-  relationship, in React Native with a Supabase Postgres backend, in development and public at
-  `danilopace1-cyber/PTgo`. Plus this site itself, which is listed as a project on its own merits.
+- True shape of the personal work: Tally, a voice following teleprompter for a phone, one dependency
+  free HTML file using the Web Speech API, in development and live at
+  `danilopace1-cyber.github.io/Tally/`. Then PTgo, a workout tracker built around the trainer and
+  client relationship, in React Native with a Supabase Postgres backend, public at
+  `danilopace1-cyber/PTgo` and on hold since November 2026. Plus this site itself, which is listed
+  as a project on its own merits.
 - The Meta Front-End course work is on hold and produced nothing worth showing, so it is a
   certification on About and not a project entry. Do not list it as one.
 

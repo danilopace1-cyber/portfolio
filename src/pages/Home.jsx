@@ -16,7 +16,7 @@ const SECTIONS = [
   {
     to: '/personal-projects',
     title: 'Personal Projects',
-    blurb: 'What I am building outside university, in React and React Native.',
+    blurb: 'What I am building outside university, on the web and on mobile. React, React Native and plain JavaScript.',
     count: personalProjects.length,
   },
 ]
